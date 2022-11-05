@@ -3,6 +3,7 @@ const router = express.Router();
 const { check } = require('express-validator');
 const { fieldValidator } = require('../Middlewares/Field-Validator');
 const {userRegister, userLogin, tokenRenew} = require('../Controllers/Auth');
+const {jwtValidator} = require('../Middlewares/Jwt-Validator');
 
 
 //Login
@@ -26,7 +27,7 @@ router.post('/register',
 userRegister);
 
 //Renovacion de Token
-router.get('/renew', tokenRenew);
+router.get('/renew', jwtValidator, tokenRenew);
 
 
 

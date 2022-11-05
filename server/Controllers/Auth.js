@@ -111,11 +111,16 @@ const userLogin = async(req, res) => {
 
 
 //Renovacion de JWT
-const tokenRenew = (req, res) => {
+const tokenRenew = async(req, res) => {
+
+    const {uid, name } = req;
+
+    //Genero nuevo jwt
+    const jwtToken = await generateJWT(uid, name);
 
     res.json({
         "ok": true,
-        msg: 'renew'
+        jwtToken
     })
 
 }
