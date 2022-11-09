@@ -5,9 +5,7 @@ import {NavLink} from 'react-router-dom';
 export default function Navigation() {
   return (
     <Navbar collapseOnSelect expand="lg" variant="dark" bg="dark">
-        <Navbar.Brand>
-            Task Manager
-        </Navbar.Brand>
+        
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         
             <Navbar.Collapse id="responsive-navbar-nav">
@@ -20,6 +18,10 @@ export default function Navigation() {
                 
             </Nav>
             </Navbar.Collapse>
+            <button className='btn btn-outline-danger'>
+              <i className='fas fa-sign-out-alt'></i>
+              <span>Salir</span>
+            </button>
         
         <h1>Navigation</h1>
     </Navbar>
