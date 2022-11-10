@@ -1,4 +1,6 @@
 
+import { useDispatch } from 'react-redux';
+import { checkingAuthentication } from '../Helpers/auth/Thunks';
 import { useForm } from '../Hooks/useForm';
 import './LoginPage.css';
 
@@ -10,11 +12,13 @@ const loginFormFields = {
 
 export const LoginPage = () => {
 
-  const {email, password, onInputChange} = useForm(loginFormFields);
+    const dispatch = useDispatch();
+    const {email, password, onInputChange} = useForm(loginFormFields);
 
-  const loginSubmit = (event) => {
+    const loginSubmit = (event) => {
     event.preventDefault();
-    console.log({email, password})
+    console.log({email, password});
+    dispatch(checkingAuthentication());
   }
 
 

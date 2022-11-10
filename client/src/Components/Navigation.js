@@ -1,8 +1,13 @@
 import React from 'react'
 import {Navbar, Nav, NavDropdown} from 'react-bootstrap';
 import {NavLink} from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { checkingAuthentication } from '../Helpers/auth/Thunks';
 
 export default function Navigation() {
+
+  //const dispatch = useDispatch();
+
   return (
     <Navbar collapseOnSelect expand="lg" variant="dark" bg="dark">
         
@@ -18,6 +23,8 @@ export default function Navigation() {
                 
             </Nav>
             </Navbar.Collapse>
+            
+            
             <button className='btn btn-outline-danger'>
               <i className='fas fa-sign-out-alt'></i>
               <span>Salir</span>
