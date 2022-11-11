@@ -1,6 +1,8 @@
 
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { checkingAuthentication } from '../Helpers/auth/Thunks';
+import Swal from 'sweetalert2';
+//import { checkingAuthentication } from '../Helpers/auth/Thunks';
 import { useAuthStore } from '../Hooks/useAuthStore';
 import { useForm } from '../Hooks/useForm';
 import './LoginPage.css';
@@ -14,16 +16,28 @@ const loginFormFields = {
 
 export const LoginPage = () => {
 
-    const {startLogin} = useAuthStore();
+    const {startLogin, errorMessage} = useAuthStore();
 
-    const dispatch = useDispatch();
+    //const dispatch = useDispatch();
     const {email, password, onInputChange} = useForm(loginFormFields);
 
     const loginSubmit = (event) => {
     event.preventDefault();
     startLogin({email:email, password:password});
-    //dispatch(checkingAuthentication());
+
   }
+
+    useEffect(() => {
+        if(errorMessage !== undefined){
+            Swal.fire({
+                title: 'Error en la Autenticacion!',
+                text: errorMessage,
+                icon: 'error',
+                confirmButtonText: 'Ok!'
+              })
+        }
+    
+    }, [errorMessage])
 
 
     return (

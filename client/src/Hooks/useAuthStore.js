@@ -27,12 +27,33 @@ export const useAuthStore = () => {
             }, 10);
         }
     }
+    
+    const startRegister = async({name, surname, address, city, celnumber, email, password, password2}) => {
+        dispatch(onChecking());
+
+        try {
+
+            const {data} = await authApi.post('/auth/register', {name, surname, address, city, celnumber, email, password, password2});
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('token-init-date', new Date().getTime());
+            dispatch(onLogin({name: data.name, uid: data.uid}))
+
+        } catch (error) {
+            dispatch(onLogout(error.response.data?.msg || 'Error!'));
+            setTimeout(() => {
+                dispatch(clearErrorMessage());
+            }, 10);
+        }
+
+
+    }
 
 
     return {
        status,
        errorMessage,
        user,
-       startLogin
+       startLogin,
+       startRegister
     }
 }
