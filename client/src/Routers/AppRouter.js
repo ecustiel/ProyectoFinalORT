@@ -2,7 +2,6 @@
 import React from 'react'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Layout from '../Components/Layouts/Layout'
-import { getEnvVariables } from '../Helpers/getEnvVariables'
 import HomePage from '../Pages/HomePage'
 import LoginPage from '../Pages/LoginPage'
 import NotFoundPage from '../Pages/NotFoundPage'
@@ -12,9 +11,9 @@ import SearchPage from '../Pages/SearchPage'
 import PrivateRoute from './PrivateRoute'
 import PublicRoute from './Publicroute'
 
+
 export default function AppRouter() {
 
-  console.log(getEnvVariables());
   return (
     <Router>
     <Layout>

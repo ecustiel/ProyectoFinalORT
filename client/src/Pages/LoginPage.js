@@ -1,8 +1,10 @@
 
 import { useDispatch } from 'react-redux';
 import { checkingAuthentication } from '../Helpers/auth/Thunks';
+import { useAuthStore } from '../Hooks/useAuthStore';
 import { useForm } from '../Hooks/useForm';
 import './LoginPage.css';
+
 
 
 const loginFormFields = {
@@ -12,13 +14,15 @@ const loginFormFields = {
 
 export const LoginPage = () => {
 
+    const {startLogin} = useAuthStore();
+
     const dispatch = useDispatch();
     const {email, password, onInputChange} = useForm(loginFormFields);
 
     const loginSubmit = (event) => {
     event.preventDefault();
-    console.log({email, password});
-    dispatch(checkingAuthentication());
+    startLogin({email:email, password:password});
+    //dispatch(checkingAuthentication());
   }
 
 
