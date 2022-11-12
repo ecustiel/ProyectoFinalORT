@@ -120,6 +120,8 @@ const tokenRenew = async(req, res) => {
 
     res.json({
         "ok": true,
+        uid,
+        name,
         jwtToken
     })
 

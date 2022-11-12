@@ -16,7 +16,7 @@ export const useAuthStore = () => {
         try {
 
             const {data} = await authApi.post('/auth/login', {email,password});
-            localStorage.setItem('token', data.token);
+            localStorage.setItem('token', data.jwtToken);
             localStorage.setItem('token-init-date', new Date().getTime());
             dispatch(onLogin({name: data.name, uid: data.uid}))
             
@@ -34,7 +34,7 @@ export const useAuthStore = () => {
         try {
 
             const {data} = await authApi.post('/auth/register', {name, surname, address, city, celnumber, email, password, password2});
-            localStorage.setItem('token', data.token);
+            localStorage.setItem('token', data.jwtToken);
             localStorage.setItem('token-init-date', new Date().getTime());
             dispatch(onLogin({name: data.name, uid: data.uid}))
 
@@ -49,11 +49,34 @@ export const useAuthStore = () => {
     }
 
 
+    const checkAuthToken = async() => {
+        const token = localStorage.getItem('token');
+        if(!token) return dispatch(onLogout());
+
+        try {
+
+            const {data} = await authApi.get('/auth/renew');
+            localStorage.setItem('token', data.jwtToken);
+            localStorage.setItem('token-init-date', new Date().getTime());
+            dispatch(onLogin({name: data.name, uid: data.uid}))
+
+            
+        } catch (error) {
+            localStorage.clear();
+            dispatch(onLogout());
+        }
+
+
+
+    }
+
+
     return {
        status,
        errorMessage,
        user,
        startLogin,
-       startRegister
+       startRegister,
+       checkAuthToken
     }
 }

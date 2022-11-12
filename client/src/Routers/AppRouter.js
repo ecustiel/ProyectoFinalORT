@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
-import React from 'react'
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import React, { useEffect } from 'react'
+import {BrowserRouter as Router, Routes, Route, Redirect} from 'react-router-dom'
 import Layout from '../Components/Layouts/Layout'
+import { useAuthStore } from '../Hooks/useAuthStore'
 import HomePage from '../Pages/HomePage'
 import LoginPage from '../Pages/LoginPage'
 import NotFoundPage from '../Pages/NotFoundPage'
@@ -14,19 +15,40 @@ import PublicRoute from './Publicroute'
 
 export default function AppRouter() {
 
+  const {status, checkAuthToken} = useAuthStore();
+
+  useEffect(() => {
+    checkAuthToken();
+  }, [])
+
+  if(status === 'checking') {
+    return (
+      <h3>Cargando...</h3>
+    )
+  }
+
+
+
   return (
     <Router>
     <Layout>
       
         <Routes>
-            <Route exact path='/' element = {<PublicRoute><HomePage /></PublicRoute>} />
-            <Route exact path='/login' element = {<PublicRoute><LoginPage /></PublicRoute>} />
-            <Route exact path='/register' element = {<PublicRoute><RegisterPage /></PublicRoute>} />
-            <Route exact path='/perfil' element = {<PrivateRoute><PerfilPage /></PrivateRoute>} />
-            <Route exact path='/search' element = {<PrivateRoute><SearchPage /></PrivateRoute>} />
-            {/*<Route exact path='/publication/:publicationId' component = {PublicationPage} />   /FaltaPage  */} /
-            //Faltan Rutas
 
+            {status === 'not-authenticated' && <>
+            <Route exact path='/login' element = {<LoginPage />} />
+            <Route exact path='/register' element = {<RegisterPage />} />
+            </>
+          }
+
+          {status === 'authenticated' && <>
+            <Route exact path='/perfil' element = {<PerfilPage />} />
+            <Route exact path='/search' element = {<SearchPage />} />
+            </>
+          }
+            {/*<Route exact path='/publication/:publicationId' component = {PublicationPage} />   /FaltaPage  */}
+
+            <Route exact path='/' element = {<HomePage />} />
             <Route exact path='*' element = {<NotFoundPage />} /> //Error 404 page not found
         </Routes>
     </Layout>
