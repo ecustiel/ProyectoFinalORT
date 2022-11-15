@@ -1,12 +1,14 @@
-import React from 'react'
-import {Navbar, Nav, NavDropdown} from 'react-bootstrap';
-import {NavLink} from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { checkingAuthentication } from '../Helpers/auth/Thunks';
+import React, { useState } from 'react'
+import {Navbar, Nav} from 'react-bootstrap';
+import {NavLink, useNavigate} from 'react-router-dom';
+import { useAuthStore } from '../Hooks/useAuthStore';
 
 export default function Navigation() {
 
-  //const dispatch = useDispatch();
+  const [hidden, setHidden] = useState(true);
+  const {startLogout, status} = useAuthStore();
+  const navigate = useNavigate();
+  
 
   return (
     <Navbar collapseOnSelect expand="lg" variant="dark" bg="dark">
@@ -14,23 +16,37 @@ export default function Navigation() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         
             <Navbar.Collapse id="responsive-navbar-nav">
+            
             <Nav className='mr-auto'>
-               
-                    <Nav.Link as={NavLink} to="/login">Iniciar Sesión</Nav.Link>
-                    <Nav.Link as={NavLink} to="/register">Registrarse</Nav.Link>
-                    <Nav.Link as={NavLink} to="/perfil">Mi Perfil</Nav.Link>
-                    <Nav.Link as={NavLink} to="/search">Busqueda</Nav.Link>
+                    {(status === 'not-authenticated') ?
+                      <>
+                        <Nav.Link as={NavLink} to="/login">Iniciar Sesión</Nav.Link> 
+                        <Nav.Link as={NavLink} to="/register">Registrarse</Nav.Link>
+                      </>
+                      :
+                      <>
+                        <Nav.Link as={NavLink} to="/perfil">Mi Perfil</Nav.Link> 
+                        <Nav.Link as={NavLink} to="/search">Busqueda</Nav.Link>
+                      </>
+                    }
+                    
+                    
                 
             </Nav>
             </Navbar.Collapse>
             
-            
-            <button className='btn btn-outline-danger'>
+            {(status === 'authenticated') ? <button className='btn btn-outline-danger'
+            onClick={event => {
+              startLogout();
+              navigate('/');
+            }}
+            >
               <i className='fas fa-sign-out-alt'></i>
-              <span>Salir</span>
-            </button>
+              <span >Salir</span>
+            </button>  : hidden}
+            
         
-        <h1>Navigation</h1>
+       
     </Navbar>
   )
 }

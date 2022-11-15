@@ -1,6 +1,6 @@
 
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 //import { checkingAuthentication } from '../Helpers/auth/Thunks';
 import { useAuthStore } from '../Hooks/useAuthStore';
@@ -17,6 +17,7 @@ const loginFormFields = {
 export const LoginPage = () => {
 
     const {startLogin, errorMessage} = useAuthStore();
+    const navigate = useNavigate();
 
     //const dispatch = useDispatch();
     const {email, password, onInputChange} = useForm(loginFormFields);
@@ -24,6 +25,7 @@ export const LoginPage = () => {
     const loginSubmit = (event) => {
     event.preventDefault();
     startLogin({email:email, password:password});
+    navigate('/search');
 
   }
 
@@ -54,6 +56,7 @@ export const LoginPage = () => {
                                 name='email'
                                 value={email}
                                 onChange={onInputChange}
+                                required
                             />
                         </div>
                         <div className="form-group mb-2">
@@ -64,6 +67,7 @@ export const LoginPage = () => {
                                 name='password'
                                 value={password}
                                 onChange={onInputChange}
+                                required
                             />
                         </div>
                         <div className="form-group mb-2">

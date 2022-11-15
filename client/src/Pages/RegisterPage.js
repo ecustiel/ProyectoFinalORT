@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useAuthStore } from '../Hooks/useAuthStore';
 import { useForm } from '../Hooks/useForm';
@@ -19,7 +20,7 @@ export const RegisterPage = () => {
 
   const {startRegister, errorMessage} = useAuthStore();
   const {name, surname, address, city, celNumber, email, password, password2, onInputChange} = useForm(registerFormFields);
-  
+  const navigate = useNavigate();
 
   const registerSubmit = (event) => {
     event.preventDefault();
@@ -34,6 +35,7 @@ export const RegisterPage = () => {
     }
     console.log({name, surname, address, city, celNumber, email, password, password2})
     startRegister({name, surname, address, city, celNumber, email, password });
+    navigate('/search');
 
 }
 
@@ -65,6 +67,7 @@ export const RegisterPage = () => {
                                 name='name'
                                 value={name}
                                 onChange={onInputChange}
+                                required
                             />
                         </div>
                         <div className="form-group mb-2">
@@ -75,6 +78,7 @@ export const RegisterPage = () => {
                                 name='surname'
                                 value={surname}
                                 onChange={onInputChange}
+                                required
                             />
                         </div>
                         <div className="form-group mb-2">
@@ -85,6 +89,7 @@ export const RegisterPage = () => {
                                 name='address'
                                 value={address}
                                 onChange={onInputChange}
+                                required
                             />
                         </div>
 
@@ -96,6 +101,7 @@ export const RegisterPage = () => {
                                 name='city'
                                 value={city}
                                 onChange={onInputChange}
+                                required
                             />
                         </div>
 
@@ -107,6 +113,7 @@ export const RegisterPage = () => {
                                 name='celNumber'
                                 value={celNumber}
                                 onChange={onInputChange}
+                                required
                             />
                         </div>
                         
@@ -118,6 +125,7 @@ export const RegisterPage = () => {
                                 name='email'
                                 value={email}
                                 onChange={onInputChange}
+                                required
                             />
                         </div>
                         <div className="form-group mb-2">
@@ -128,6 +136,7 @@ export const RegisterPage = () => {
                                 name='password'
                                 value={password}
                                 onChange={onInputChange}
+                                required
                             />
                         </div>
 
@@ -139,6 +148,7 @@ export const RegisterPage = () => {
                                 name='password2'
                                 value={password2}
                                 onChange={onInputChange}
+                                required
                             />
                         </div>
 

@@ -9,8 +9,7 @@ import NotFoundPage from '../Pages/NotFoundPage'
 import PerfilPage from '../Pages/PerfilPage'
 import RegisterPage from '../Pages/RegisterPage'
 import SearchPage from '../Pages/SearchPage'
-import PrivateRoute from './PrivateRoute'
-import PublicRoute from './Publicroute'
+
 
 
 export default function AppRouter() {
@@ -46,7 +45,7 @@ export default function AppRouter() {
             <Route exact path='/search' element = {<SearchPage />} />
             </>
           }
-            {/*<Route exact path='/publication/:publicationId' component = {PublicationPage} />   /FaltaPage  */}
+            
 
             <Route exact path='/' element = {<HomePage />} />
             <Route exact path='*' element = {<NotFoundPage />} /> //Error 404 page not found
