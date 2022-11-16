@@ -33,9 +33,19 @@ export const RegisterPage = () => {
           });
           return;
     }
-    console.log({name, surname, address, city, celNumber, email, password, password2})
+
+    if(password.length > 16 || password.length < 6){
+        
+        Swal.fire({
+            title: 'Error en el Registro!',
+            text: 'La Contraseña debe ser mayor de 6 digitos y menor de 16! Verifique!',
+            icon: 'error',
+            confirmButtonText: 'Ok!'
+          });
+          return;
+    }
     startRegister({name, surname, address, city, celNumber, email, password });
-    navigate('/search');
+    navigate('/login');
 
 }
 
