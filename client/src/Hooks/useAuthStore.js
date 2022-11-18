@@ -29,12 +29,12 @@ export const useAuthStore = () => {
         }
     }
     
-    const startRegister = async({name, surname, address, city, celnumber, email, password, password2}) => {
+    const startRegister = async({name, surname, address, city, celNumber, email, password, password2}) => {
         dispatch(onChecking());
 
         try {
 
-            const {data} = await authApi.post('/auth/register', {name, surname, address, city, celnumber, email, password, password2});
+            const {data} = await authApi.post('/auth/register', {name, surname, address, city, celNumber, email, password, password2});
             localStorage.setItem('token', data.jwtToken);
             localStorage.setItem('token-init-date', new Date().getTime());
             dispatch(onLogin({name: data.name, uid: data.uid}))

@@ -19,7 +19,7 @@ const userSchema = Schema({
         type: String,
         require: true
     },
-    celnumber: {
+    celNumber: {
         type: String,
         require: true
     },

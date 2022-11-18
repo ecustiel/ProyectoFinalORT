@@ -13,6 +13,7 @@ const userRegister = async(req, res) => {
 
         //Controlo si existe el mail
         let usr = await User.findOne({email});
+        
 
         if(usr) {
             return res.status(400).json({
@@ -22,6 +23,7 @@ const userRegister = async(req, res) => {
         }
 
         usr = new User(req.body);
+        console.log(usr);
 
         //Encriptador de Contrasena
         const salt = bcrypt.genSaltSync();

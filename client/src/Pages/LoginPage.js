@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 //import { checkingAuthentication } from '../Helpers/auth/Thunks';
 import { useAuthStore } from '../Hooks/useAuthStore';
 import { useForm } from '../Hooks/useForm';
+import {Toast} from '../Helpers/SwalHelpers';
 import './LoginPage.css';
 
 
@@ -13,6 +14,8 @@ const loginFormFields = {
   email:"",
   password:"",
 }
+
+
 
 export const LoginPage = () => {
 
@@ -24,8 +27,16 @@ export const LoginPage = () => {
 
     const loginSubmit = (event) => {
     event.preventDefault();
-    startLogin({email:email, password:password});
-    navigate('/search');
+
+    if(startLogin({email:email, password:password})){
+        navigate('/search');
+        Toast.fire({
+            icon: 'success',
+            title: 'Logeado Exitosamente!'
+          })
+          
+    }
+   
 
   }
 

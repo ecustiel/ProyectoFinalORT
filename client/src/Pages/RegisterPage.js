@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useAuthStore } from '../Hooks/useAuthStore';
 import { useForm } from '../Hooks/useForm';
+import {Toast} from '../Helpers/SwalHelpers';
 import './RegisterPage.css';
 
 const registerFormFields = {
@@ -21,6 +22,7 @@ export const RegisterPage = () => {
   const {startRegister, errorMessage} = useAuthStore();
   const {name, surname, address, city, celNumber, email, password, password2, onInputChange} = useForm(registerFormFields);
   const navigate = useNavigate();
+  console.log(registerFormFields);
 
   const registerSubmit = (event) => {
     event.preventDefault();
@@ -44,8 +46,16 @@ export const RegisterPage = () => {
           });
           return;
     }
-    startRegister({name, surname, address, city, celNumber, email, password });
-    navigate('/login');
+
+
+    if(startRegister({name, surname, address, city, celNumber, email, password })) {
+        navigate('/');
+        Toast.fire({
+            icon: 'success',
+            title: 'Registrado Exitosamente!'
+          })
+    }
+    
 
 }
 
