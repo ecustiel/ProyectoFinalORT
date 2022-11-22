@@ -9,6 +9,7 @@ import NotFoundPage from '../Pages/NotFoundPage'
 import PerfilPage from '../Pages/PerfilPage'
 import RegisterPage from '../Pages/RegisterPage'
 import SearchPage from '../Pages/SearchPage'
+import RegisterProductPage from '../Pages/RegisterProduct/RegisterProductPage'
 
 
 
@@ -37,6 +38,7 @@ export default function AppRouter() {
             {status === 'not-authenticated' && <>
             <Route exact path='/login' element = {<LoginPage />} />
             <Route exact path='/register' element = {<RegisterPage />} />
+            
             </>
           }
 
@@ -46,7 +48,7 @@ export default function AppRouter() {
             </>
           }
             
-
+            <Route exact path='/registerProduct' element = {<RegisterProductPage />} />
             <Route exact path='/' element = {<HomePage />} />
             <Route exact path='*' element = {<NotFoundPage />} /> //Error 404 page not found
         </Routes>
