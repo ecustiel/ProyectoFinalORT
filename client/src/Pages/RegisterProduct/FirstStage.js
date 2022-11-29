@@ -6,7 +6,9 @@ export default function FirstStep() {
     <div>
       <Form className="mh-100">
         <Form.Group className="mb-3" controlId="formTitle">
-          <Form.Label>Titulo de la Publicacion</Form.Label>
+          <Form.Label>
+            <b>Titulo de la Publicacion</b>
+          </Form.Label>
           <Form.Control placeholder="Inserte Titulo" />
         </Form.Group>
 

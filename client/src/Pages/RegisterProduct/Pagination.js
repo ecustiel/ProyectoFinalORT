@@ -63,6 +63,9 @@ export const Pagination = () => {
         <Button onClick={onNext} disabled={step === 5}>
           Next
         </Button>
+        <Button onClick={onsubmit} disabled={step !== 5}>
+          Confirmar
+        </Button>
       </ButtonGroup>
     </div>
   );
