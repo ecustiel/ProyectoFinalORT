@@ -1,9 +1,10 @@
 import React from "react";
+import ImgUploader from "./ImgUploader";
 
 export default function FifthStage() {
   return (
-    <div>
-      <h1>Quinto Paso</h1>
-    </div>
+    <>
+      <ImgUploader />
+    </>
   );
 }

@@ -11,7 +11,7 @@ export default function SecondStage() {
           </Form.Label>
           <Form.Text>Cantidad Maxima de Huespedes</Form.Text>
           <Form.Select aria-label="Default select example" className="w-50 ">
-            <option>Cantidad de Huespedes</option>
+            <option value="0">Cantidad de Huespedes</option>
             <option value="1">1 Huesped</option>
             <option value="2">2 Huespedes</option>
             <option value="3">3 Huespedes</option>

@@ -44,7 +44,7 @@ export const Pagination = () => {
   }
 
   return (
-    <div class="mt-5 w-75 mx-auto">
+    <div class="mt-5 w-75 vh-75 mx-auto">
       <Steps current={step}>
         <Steps.Item title="Paso 1" description="Datos de la Operacion" />
         <Steps.Item title="Paso 2" description="Datos Generales" />
@@ -54,9 +54,9 @@ export const Pagination = () => {
         <Steps.Item title="Finalizar" description="Descripcion" />
       </Steps>
       <hr />
-      <Panel header={`Step: ${step + 1}`}>{Render}</Panel>
-      <hr />
-      <ButtonGroup>
+      <Panel shaded>{Render}</Panel>
+
+      <ButtonGroup className="btnGroup">
         <Button onClick={onPrevious} disabled={step === 0}>
           Previous
         </Button>
