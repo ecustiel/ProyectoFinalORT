@@ -1,7 +1,9 @@
-import React from "react";
+import { useState } from "react";
 import { Button, Col, Form, Row, InputGroup } from "react-bootstrap";
 
-export default function SecondStage() {
+export default function SecondStage({ valuesToBase }) {
+  console.log(valuesToBase);
+  const [values, setvalues] = useState(valuesToBase);
   return (
     <div>
       <Form>

@@ -11,18 +11,9 @@ const ImgUploader = () => {
       <Uploader
         listType="picture-text"
         value={value}
-        autoUpload={false}
+        autoUpload={true}
         onChange={setValue}
         ref={uploader}
-        action="//jsonplaceholder.typicode.com/posts/"
-        onSuccess={Toast.fire({
-          icon: "success",
-          title: "Imagenes Cargadas Correctamente!",
-        })}
-        onError={Toast.fire({
-          icon: "error",
-          title: "Error al cargar las imagenes, revise nuevamente!",
-        })}
       />
 
       <hr />

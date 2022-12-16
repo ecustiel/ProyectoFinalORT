@@ -1,43 +1,48 @@
-import React from "react";
+import { useState, useContext } from "react";
+import { useForm } from "react-hook-form";
 import { Button, Col, Form, Row, InputGroup } from "react-bootstrap";
+import { AuthContext } from "../../Authentication/AuthProvider";
 
 export default function FirstStep() {
+  const probandoDatos = useContext(AuthContext);
+  console.log(probandoDatos);
   return (
     <div>
       <Form className="mh-100">
         <Form.Group className="mb-3" controlId="formTitle">
           <Form.Label>
-            <b>Titulo de la Publicacion</b>
+            <strong>Titulo de la Publicacion</strong>
           </Form.Label>
-          <Form.Control placeholder="Inserte Titulo" />
+          <Form.Control name="title" placeholder="Inserte Titulo" />
         </Form.Group>
 
         <div className="mb-3 bg-secondary bg-opacity-50 border border-dark border-1 rounded">
           <span className="mb-3 p-4">
-            <b>Definicion de Temporadas:</b>
+            <strong>Definicion de Temporadas:</strong>
           </span>
 
           <div className="ps-5">
             <p>
-              <b>Alta:</b> Diciembre, Enero, Febrero, Semana Santa, Semana
-              Carnaval
+              <strong>Alta:</strong> Diciembre, Enero, Febrero, Semana Santa,
+              Semana Carnaval
             </p>
             <p>
-              <b>Media:</b> Marzo, Vacaciones Julio
+              <strong>Media:</strong> Marzo, Vacaciones Julio
             </p>
             <p>
-              <b>Baja:</b> Resto del Año
+              <strong>Baja:</strong> Resto del Año
             </p>
           </div>
         </div>
         <hr />
 
-        <Form.Group controlId="">
+        <Form.Group controlId="Primero">
           <Row>
             <Col className="justify-content-center">
               <Form.Select
                 aria-label="Default select example"
                 className="w-50 mx-auto"
+                name="temp1"
               >
                 <option>Seleccione Temporada</option>
                 <option value="Alta">Alta</option>
@@ -52,6 +57,7 @@ export default function FirstStep() {
                   placeholder="Prexio x Dia"
                   controlId="PricePerDay1"
                   aria-label="Amount (to the nearest dollar)"
+                  name="prec1"
                 />
                 <InputGroup.Text>.00</InputGroup.Text>
               </InputGroup>
@@ -59,12 +65,13 @@ export default function FirstStep() {
           </Row>
         </Form.Group>
 
-        <Form.Group controlId="" className="mt-2">
+        <Form.Group controlId="Segundo" className="mt-2">
           <Row>
             <Col className="justify-content-center">
               <Form.Select
                 aria-label="Default select example"
                 className="w-50 mx-auto"
+                name="temp2"
               >
                 <option>Seleccione Temporada</option>
                 <option value="Alta">Alta</option>
@@ -79,6 +86,7 @@ export default function FirstStep() {
                   placeholder="Prexio x Dia"
                   controlId="PricePerDay2"
                   aria-label="Amount (to the nearest dollar)"
+                  name="prec2"
                 />
                 <InputGroup.Text>.00</InputGroup.Text>
               </InputGroup>
@@ -86,12 +94,13 @@ export default function FirstStep() {
           </Row>
         </Form.Group>
 
-        <Form.Group controlId="" className="mt-2">
+        <Form.Group controlId="Tercero" className="mt-2">
           <Row>
             <Col className="justify-content-center">
               <Form.Select
                 aria-label="Default select example"
                 className="w-50 mx-auto"
+                name="temp3"
               >
                 <option>Seleccione Temporada</option>
                 <option value="Alta">Alta</option>
@@ -106,6 +115,7 @@ export default function FirstStep() {
                   placeholder="Prexio x Dia"
                   controlId="PricePerDay3"
                   aria-label="Amount (to the nearest dollar)"
+                  name="prec3"
                 />
                 <InputGroup.Text>.00</InputGroup.Text>
               </InputGroup>

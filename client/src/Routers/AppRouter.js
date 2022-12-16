@@ -14,6 +14,7 @@ import NotFoundPage from "../Pages/NotFoundPage";
 import PerfilPage from "../Pages/PerfilPage";
 import RegisterPage from "../Pages/RegisterPage";
 import SearchPage from "../Pages/SearchPage";
+import Pagination from "../Pages/RegisterProduct/Pagination";
 import RegisterProductPage from "../Pages/RegisterProduct/RegisterProductPage";
 
 export default function AppRouter() {
@@ -41,6 +42,7 @@ export default function AppRouter() {
             <>
               <Route exact path="/perfil" element={<PerfilPage />} />
               <Route exact path="/search" element={<SearchPage />} />
+              <Route exact path="/registerProduct" element={<Pagination />} />
             </>
           )}
           <Route

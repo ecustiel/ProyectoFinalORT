@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import FirstStep from "./FirstStage";
 import SecondStage from "./SecondStage";
 import ThirdStage from "./ThirdStage";
@@ -10,21 +10,49 @@ import "./styles.css";
 import { Steps, Panel, Placeholder, ButtonGroup, Button } from "rsuite";
 
 export const Pagination = () => {
-  const [step, setStep] = React.useState(0);
+  const state = {
+    title: "",
+    temporada: [
+      {
+        temp1: "",
+        prec1: "",
+      },
+      {
+        temp2: "",
+        prec2: "",
+      },
+      {
+        temp3: "",
+        prec3: "",
+      },
+    ],
+  };
+
+  const [step, setStep] = useState(0);
+  const [valuesToBase, setValuesToBase] = useState(state);
+
   const onChange = (nextStep) => {
     setStep(nextStep < 0 ? 0 : nextStep > 5 ? 5 : nextStep);
   };
 
-  const onNext = () => onChange(step + 1);
+  const onNext = () => {
+    onChange(step + 1);
+  };
   const onPrevious = () => onChange(step - 1);
   let Render = null;
 
+  const handleChange = (input) => (e) => {
+    this.setValuesToBase({ [input]: e.target.value });
+  };
+
+  console.log(valuesToBase);
+
   switch (step) {
     case 0:
-      Render = <FirstStep />;
+      Render = <FirstStep onNext={onNext} />;
       break;
     case 1:
-      Render = <SecondStage />;
+      Render = <SecondStage valuesToBase={valuesToBase} />;
       break;
     case 2:
       Render = <ThirdStage />;
