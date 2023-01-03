@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Button, Col, Form, Row, InputGroup } from "react-bootstrap";
+import useFormContext from "../../Hooks/useFormContext";
 
-export default function SecondStage({ valuesToBase }) {
-  console.log(valuesToBase);
-  const [values, setvalues] = useState(valuesToBase);
+export default function SecondStage() {
+  const { publication, handleChange } = useFormContext();
+
+  console.log(publication);
   return (
     <div>
       <Form>
@@ -12,7 +14,13 @@ export default function SecondStage({ valuesToBase }) {
             <b>2 - Datos Generales </b>
           </Form.Label>
           <Form.Text>Cantidad Maxima de Huespedes</Form.Text>
-          <Form.Select aria-label="Default select example" className="w-50 ">
+          <Form.Select
+            aria-label="Default select example"
+            className="w-50 "
+            name="cantHuespedes"
+            value={publication.cantHuespedes}
+            onChange={handleChange}
+          >
             <option value="0">Cantidad de Huespedes</option>
             <option value="1">1 Huesped</option>
             <option value="2">2 Huespedes</option>
@@ -28,12 +36,18 @@ export default function SecondStage({ valuesToBase }) {
           </Form.Select>
 
           <Form.Text>Tipo de Propiedad</Form.Text>
-          <Form.Select aria-label="Default select example" className="w-50 ">
-            <option>Cantidad de Huespedes</option>
-            <option value="hse">Casa</option>
-            <option value="apt">Apartamento</option>
-            <option value="cbn">Cabaña</option>
-            <option value="est">Estancia</option>
+          <Form.Select
+            aria-label="Default select example"
+            className="w-50 "
+            name="tipoPropiedad"
+            value={publication.tipoPropiedad}
+            onChange={handleChange}
+          >
+            <option>Tipo Propiedad</option>
+            <option value="house">Casa</option>
+            <option value="apto">Apartamento</option>
+            <option value="cabin">Cabaña</option>
+            <option value="smlFarm">Estancia</option>
           </Form.Select>
         </Form.Group>
       </Form>

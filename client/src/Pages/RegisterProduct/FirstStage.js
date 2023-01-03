@@ -1,19 +1,28 @@
-import { useState, useContext } from "react";
-import { useForm } from "react-hook-form";
+import { useState, useContext, useRef } from "react";
 import { Button, Col, Form, Row, InputGroup } from "react-bootstrap";
-import { AuthContext } from "../../Authentication/AuthProvider";
+import useFormContext from "../../Hooks/useFormContext";
 
 export default function FirstStep() {
-  const probandoDatos = useContext(AuthContext);
-  console.log(probandoDatos);
+  const { publication, handleChange } = useFormContext();
+
+  const ref = useRef(publication);
+
+  console.log(publication);
   return (
     <div>
       <Form className="mh-100">
-        <Form.Group className="mb-3" controlId="formTitle">
+        <Form.Group className="mb-3" id="title">
           <Form.Label>
             <strong>Titulo de la Publicacion</strong>
           </Form.Label>
-          <Form.Control name="title" placeholder="Inserte Titulo" />
+          <Form.Control
+            name="title"
+            placeholder="Inserte el Titulo"
+            id="title"
+            ref={ref.title}
+            value={publication.title}
+            onChange={handleChange}
+          />
         </Form.Group>
 
         <div className="mb-3 bg-secondary bg-opacity-50 border border-dark border-1 rounded">
@@ -36,28 +45,31 @@ export default function FirstStep() {
         </div>
         <hr />
 
-        <Form.Group controlId="Primero">
+        <Form.Group id="Primero">
           <Row>
             <Col className="justify-content-center">
-              <Form.Select
+              <Form.Control
+                readOnly
+                placeholder="Temporada Alta"
                 aria-label="Default select example"
-                className="w-50 mx-auto"
+                className="w-50 mx-auto text-center"
                 name="temp1"
-              >
-                <option>Seleccione Temporada</option>
-                <option value="Alta">Alta</option>
-                <option value="Media">Media</option>
-                <option value="Baja">Baja</option>
-              </Form.Select>
+                id="temp1"
+                ref={ref.temp1}
+                value={publication.temp1}
+              />
             </Col>
             <Col>
               <InputGroup className="pe-5 w-75">
                 <InputGroup.Text>$</InputGroup.Text>
                 <Form.Control
                   placeholder="Prexio x Dia"
-                  controlId="PricePerDay1"
+                  Id="pric1"
                   aria-label="Amount (to the nearest dollar)"
-                  name="prec1"
+                  name="pric1"
+                  ref={ref.pric1}
+                  value={publication.pric1}
+                  onChange={handleChange}
                 />
                 <InputGroup.Text>.00</InputGroup.Text>
               </InputGroup>
@@ -65,28 +77,30 @@ export default function FirstStep() {
           </Row>
         </Form.Group>
 
-        <Form.Group controlId="Segundo" className="mt-2">
+        <Form.Group Id="Segundo" className="mt-2">
           <Row>
             <Col className="justify-content-center">
-              <Form.Select
+              <Form.Control
+                readOnly
+                placeholder="Temporada Media"
                 aria-label="Default select example"
-                className="w-50 mx-auto"
+                className="w-50 mx-auto text-center"
                 name="temp2"
-              >
-                <option>Seleccione Temporada</option>
-                <option value="Alta">Alta</option>
-                <option value="Media">Media</option>
-                <option value="Baja">Baja</option>
-              </Form.Select>
+                id="temp2"
+                ref={ref.temp2}
+                value={publication.temp2}
+              />
             </Col>
             <Col>
               <InputGroup className="pe-5 w-75">
                 <InputGroup.Text>$</InputGroup.Text>
                 <Form.Control
                   placeholder="Prexio x Dia"
-                  controlId="PricePerDay2"
+                  Id="pric2"
                   aria-label="Amount (to the nearest dollar)"
-                  name="prec2"
+                  name="pric2"
+                  value={publication.pric2}
+                  onChange={handleChange}
                 />
                 <InputGroup.Text>.00</InputGroup.Text>
               </InputGroup>
@@ -94,28 +108,30 @@ export default function FirstStep() {
           </Row>
         </Form.Group>
 
-        <Form.Group controlId="Tercero" className="mt-2">
+        <Form.Group Id="Tercero" className="mt-2">
           <Row>
             <Col className="justify-content-center">
-              <Form.Select
+              <Form.Control
+                readOnly
+                placeholder="Temporada Baja"
                 aria-label="Default select example"
-                className="w-50 mx-auto"
+                className="w-50 mx-auto text-center"
                 name="temp3"
-              >
-                <option>Seleccione Temporada</option>
-                <option value="Alta">Alta</option>
-                <option value="Media">Media</option>
-                <option value="Baja">Baja</option>
-              </Form.Select>
+                id="temp3"
+                ref={ref.temp3}
+                value={publication.temp3}
+              />
             </Col>
             <Col>
               <InputGroup className="pe-5 w-75">
                 <InputGroup.Text>$</InputGroup.Text>
                 <Form.Control
                   placeholder="Prexio x Dia"
-                  controlId="PricePerDay3"
+                  Id="pric3"
                   aria-label="Amount (to the nearest dollar)"
-                  name="prec3"
+                  name="pric3"
+                  value={publication.pric3}
+                  onChange={handleChange}
                 />
                 <InputGroup.Text>.00</InputGroup.Text>
               </InputGroup>

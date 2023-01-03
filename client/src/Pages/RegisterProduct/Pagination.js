@@ -10,26 +10,7 @@ import "./styles.css";
 import { Steps, Panel, Placeholder, ButtonGroup, Button } from "rsuite";
 
 export const Pagination = () => {
-  const state = {
-    title: "",
-    temporada: [
-      {
-        temp1: "",
-        prec1: "",
-      },
-      {
-        temp2: "",
-        prec2: "",
-      },
-      {
-        temp3: "",
-        prec3: "",
-      },
-    ],
-  };
-
   const [step, setStep] = useState(0);
-  const [valuesToBase, setValuesToBase] = useState(state);
 
   const onChange = (nextStep) => {
     setStep(nextStep < 0 ? 0 : nextStep > 5 ? 5 : nextStep);
@@ -45,14 +26,12 @@ export const Pagination = () => {
     this.setValuesToBase({ [input]: e.target.value });
   };
 
-  console.log(valuesToBase);
-
   switch (step) {
     case 0:
       Render = <FirstStep onNext={onNext} />;
       break;
     case 1:
-      Render = <SecondStage valuesToBase={valuesToBase} />;
+      Render = <SecondStage />;
       break;
     case 2:
       Render = <ThirdStage />;
@@ -72,7 +51,7 @@ export const Pagination = () => {
   }
 
   return (
-    <div class="mt-5 w-75 vh-75 mx-auto">
+    <div className="mt-5 w-75 vh-75 mx-auto">
       <Steps current={step}>
         <Steps.Item title="Paso 1" description="Datos de la Operacion" />
         <Steps.Item title="Paso 2" description="Datos Generales" />

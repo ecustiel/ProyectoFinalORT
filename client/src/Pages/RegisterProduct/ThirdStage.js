@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Button, Col, Form, Row, InputGroup, Control } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBed, loveseat } from "@fortawesome/free-solid-svg-icons";
+import useFormContext from "../../Hooks/useFormContext";
 
 export default function ThirdStage() {
+  const { publication, handleChange } = useFormContext();
+  const ref = useRef(publication);
+  console.log(publication);
+
   return (
     <div>
       <Form className="mh-100">
@@ -22,28 +25,40 @@ export default function ThirdStage() {
               <Form.Check
                 inline
                 label="1"
-                name="group1"
+                name="cantDormitorios"
+                value="1"
+                checked={publication.cantDormitorios === "1"}
+                onChange={handleChange}
                 type={type}
                 id={`inline-${type}-1`}
               />
               <Form.Check
                 inline
                 label="2"
-                name="group1"
+                name="cantDormitorios"
+                value="2"
+                checked={publication.cantDormitorios === "2"}
+                onChange={handleChange}
                 type={type}
                 id={`inline-${type}-2`}
               />
               <Form.Check
                 inline
                 label="3"
-                name="group1"
+                name="cantDormitorios"
+                value="3"
+                checked={publication.cantDormitorios === "3"}
+                onChange={handleChange}
                 type={type}
                 id={`inline-${type}-1`}
               />
               <Form.Check
                 inline
                 label="4 o +"
-                name="group1"
+                name="cantDormitorios"
+                value="4++"
+                checked={publication.cantDormitorios === "4++"}
+                onChange={handleChange}
                 type={type}
                 id={`inline-${type}-1`}
               />
@@ -51,7 +66,7 @@ export default function ThirdStage() {
           ))}
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBathroom">
+        <Form.Group className="mb-3" Id="formBathroom">
           <Form.Label>
             <b>Baños:</b>
           </Form.Label>
@@ -60,21 +75,30 @@ export default function ThirdStage() {
               <Form.Check
                 inline
                 label="1"
-                name="group2"
+                name="cantBanos"
+                value="1"
+                checked={publication.cantBanos === "1"}
+                onChange={handleChange}
                 type={type}
                 id={`inline-${type}-1`}
               />
               <Form.Check
                 inline
                 label="2"
-                name="group2"
+                name="cantBanos"
+                value="2"
+                checked={publication.cantBanos === "2"}
+                onChange={handleChange}
                 type={type}
                 id={`inline-${type}-2`}
               />
               <Form.Check
                 inline
                 label="3 o +"
-                name="group2"
+                name="cantBanos"
+                value="3++"
+                checked={publication.cantBanos === "3++"}
+                onChange={handleChange}
                 type={type}
                 id={`inline-${type}-1`}
               />
@@ -82,21 +106,27 @@ export default function ThirdStage() {
           ))}
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formGaraje">
+        <Form.Group className="mb-3" id="formGaraje">
           <Form.Label>Garaje:</Form.Label>
           {["radio"].map((type) => (
             <div key={`inline-${type}`} className="mb-3">
               <Form.Check
                 inline
                 label="1"
-                name="group3"
+                name="garaje"
+                value="1"
+                checked={publication.garaje === "1"}
+                onChange={handleChange}
                 type={type}
                 id={`inline-${type}-1`}
               />
               <Form.Check
                 inline
                 label="2 o +"
-                name="group3"
+                name="garaje"
+                value="2++"
+                checked={publication.garaje === "2++"}
+                onChange={handleChange}
                 type={type}
                 id={`inline-${type}-2`}
               />
@@ -104,7 +134,7 @@ export default function ThirdStage() {
           ))}
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formSeaview">
+        <Form.Group className="mb-3" id="formSeaview">
           <Form.Label>
             <b>Vista al Mar:</b>
           </Form.Label>
@@ -113,14 +143,20 @@ export default function ThirdStage() {
               <Form.Check
                 inline
                 label="Si"
-                name="group4"
+                name="vistaAlMar"
+                value="Si"
+                checked={publication.vistaAlMar === "Si"}
+                onChange={handleChange}
                 type={type}
                 id={`inline-${type}-1`}
               />
               <Form.Check
                 inline
                 label="No"
-                name="group4"
+                name="vistaAlMar"
+                value="No"
+                checked={publication.vistaAlMar === "No"}
+                onChange={handleChange}
                 type={type}
                 id={`inline-${type}-2`}
               />
@@ -128,21 +164,27 @@ export default function ThirdStage() {
           ))}
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formDistance">
+        <Form.Group className="mb-3" id="formDistance">
           <Form.Label>
             <b>Distancia al Mar:</b>
           </Form.Label>
-          <Form.Select aria-label="Default select example" className="w-50 ">
+          <Form.Select
+            aria-label="Default select example"
+            className="w-50 "
+            name="distanciaAlMar"
+            value={publication.distanciaAlMar}
+            onChange={handleChange}
+          >
             <option>Sin Descripcion</option>
             <option value="100">100</option>
             <option value="250">250</option>
             <option value="500">500</option>
             <option value="750">750</option>
-            <option value="1000">1000 o +</option>
+            <option value="1000++">1000 o +</option>
           </Form.Select>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formDesc">
+        <Form.Group className="mb-3" id="formDesc">
           <Form.Label>
             <b>Camas:</b>
           </Form.Label>
@@ -153,6 +195,9 @@ export default function ThirdStage() {
                 <Form.Control
                   type="number"
                   id="inputDouble"
+                  name="dosPlazas"
+                  value={publication.dosPlazas}
+                  onChange={handleChange}
                   aria-describedby="formDesc"
                   className="input-group-addon"
                 />
@@ -164,6 +209,8 @@ export default function ThirdStage() {
                 type="number"
                 id="inputSingle"
                 aria-describedby="formDesc"
+                value={publication.unaPlaza}
+                onChange={handleChange}
               />
             </div>
 
