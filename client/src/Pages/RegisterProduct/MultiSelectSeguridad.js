@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Select from "react-select";
+import useFormContext from "../../Hooks/useFormContext";
 
 const MultiSelectSeguridad = () => {
+  const { publication, handleChange } = useFormContext();
+
+  const [selectedOption, setSelectedOption] = useState("");
+
+  const handleChangeOption = (selectedOption) => {
+    setSelectedOption(selectedOption.value);
+    publication.opcionesSeguridad = selectedOption.map(
+      (selected) => selected.value
+    );
+    console.log(publication);
+  };
+
   const securityOptions = [
     { value: "Alarma", label: "Alarma" },
     { value: "Sistema Camaras", label: "Sistema Camaras" },
@@ -20,6 +33,8 @@ const MultiSelectSeguridad = () => {
         className="basic-multi-select"
         classNamePrefix="select"
         options={securityOptions}
+        onChange={handleChangeOption}
+        getValue={publication.opcionesSeguridad}
       />
     </>
   );

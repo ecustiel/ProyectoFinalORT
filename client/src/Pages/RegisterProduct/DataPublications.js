@@ -22,4 +22,5 @@ export const publicationData = {
   opcionesSeguridad: "",
   youtubeVideo: "",
   descripcionPropiedad: "",
+  imagenesBase64: "",
 };

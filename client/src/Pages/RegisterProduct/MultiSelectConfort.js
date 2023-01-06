@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Select from "react-select";
+import useFormContext from "../../Hooks/useFormContext";
 
 const MultiSelectConfort = () => {
+  const { publication, handleChange } = useFormContext();
+
+  const [selectedOption, setSelectedOption] = useState("");
+
+  const handleChangeOption = (selectedOption) => {
+    setSelectedOption(selectedOption.value);
+    publication.opcionesConfort = selectedOption.map(
+      (selected) => selected.value
+    );
+    console.log(publication);
+  };
+
   const confortOptions = [
     { value: "Agua Caliente ", label: "Agua Caliente" },
     { value: "Aire Acondicionado", label: "Aire Acondicionado" },
@@ -25,10 +38,12 @@ const MultiSelectConfort = () => {
     <>
       <Select
         isMulti
-        name="confort"
+        name="opcionesConfort"
         className="basic-multi-select"
         classNamePrefix="select"
         options={confortOptions}
+        onChange={handleChangeOption}
+        getValue={publication.opcionesConfort}
       />
     </>
   );

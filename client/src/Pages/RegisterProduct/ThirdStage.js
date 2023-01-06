@@ -208,6 +208,7 @@ export default function ThirdStage() {
               <Form.Control
                 type="number"
                 id="inputSingle"
+                name="unaPlaza"
                 aria-describedby="formDesc"
                 value={publication.unaPlaza}
                 onChange={handleChange}
@@ -220,6 +221,9 @@ export default function ThirdStage() {
                 type="number"
                 id="inputSofa"
                 aria-describedby="formDesc"
+                name="sofaCama"
+                value={publication.sofaCama}
+                onChange={handleChange}
               />
             </div>
 
@@ -229,6 +233,9 @@ export default function ThirdStage() {
                 type="number"
                 id="inputMattress"
                 aria-describedby="formDesc"
+                name="colchon"
+                value={publication.colchon}
+                onChange={handleChange}
               />
             </div>
 
@@ -238,6 +245,9 @@ export default function ThirdStage() {
                 type="number"
                 id="inputBunk"
                 aria-describedby="formDesc"
+                name="cucheta"
+                value={publication.cucheta}
+                onChange={handleChange}
               />
             </div>
           </div>
