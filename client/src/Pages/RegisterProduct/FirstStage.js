@@ -7,7 +7,6 @@ export default function FirstStep() {
 
   const ref = useRef(publication);
 
-  console.log(publication);
   return (
     <div>
       <Form className="mh-100">

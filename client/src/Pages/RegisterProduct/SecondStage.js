@@ -5,7 +5,6 @@ import useFormContext from "../../Hooks/useFormContext";
 export default function SecondStage() {
   const { publication, handleChange } = useFormContext();
 
-  console.log(publication);
   return (
     <div>
       <Form>

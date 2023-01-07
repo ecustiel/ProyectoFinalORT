@@ -5,7 +5,6 @@ import useFormContext from "../../Hooks/useFormContext";
 export default function ThirdStage() {
   const { publication, handleChange } = useFormContext();
   const ref = useRef(publication);
-  console.log(publication);
 
   return (
     <div>
