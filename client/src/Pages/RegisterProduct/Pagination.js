@@ -6,10 +6,17 @@ import FourthStage from "./FourthStage";
 import FifthStage from "./FifthStage";
 import SixthStage from "./SixthStage";
 import "./styles.css";
+import { useRegisterPubStore } from "../../Hooks/useRegisterPubStore";
+import useFormContext from "../../Hooks/useFormContext";
+import { publicationData } from "./DataPublications";
+import { Toast } from "../../Helpers/SwalHelpers";
 
 import { Steps, Panel, Placeholder, ButtonGroup, Button } from "rsuite";
 
 export const Pagination = () => {
+  const { publication, handleChange } = useFormContext();
+  const { regPublication } = useRegisterPubStore();
+
   const [step, setStep] = useState(0);
 
   const onChange = (nextStep) => {
@@ -22,8 +29,21 @@ export const Pagination = () => {
   const onPrevious = () => onChange(step - 1);
   let Render = null;
 
-  const handleChange = (input) => (e) => {
-    this.setValuesToBase({ [input]: e.target.value });
+  //Confirm Final
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    if ((await regPublication(publication)) === true) {
+      Toast.fire({
+        icon: "success",
+        title: "Publicado Exitosamente!",
+      });
+    } else {
+      Toast.fire({
+        icon: "error",
+        title: "Error en la Publicacion, Verifique!",
+      });
+    }
   };
 
   switch (step) {
@@ -70,7 +90,7 @@ export const Pagination = () => {
         <Button onClick={onNext} disabled={step === 5}>
           Next
         </Button>
-        <Button onClick={onsubmit} disabled={step !== 5}>
+        <Button onClick={onSubmit} disabled={step !== 5}>
           Confirmar
         </Button>
       </ButtonGroup>

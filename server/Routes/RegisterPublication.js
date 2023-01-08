@@ -6,7 +6,7 @@ const { registerPublication } = require("../Controllers/RegisterPublication");
 
 //Registro
 router.post(
-  "/registerProduct",
+  "/regPublication",
   [
     check("title", "El titulo es obligatorio!").not().isEmpty(),
     fieldValidator,
