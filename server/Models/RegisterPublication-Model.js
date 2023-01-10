@@ -1,6 +1,10 @@
 const { Schema, model } = require("mongoose");
 
 const registerPublicationSchema = Schema({
+  idPublication: {
+    type: String,
+    require: true,
+  },
   title: {
     type: String,
     require: true,
@@ -55,7 +59,6 @@ const registerPublicationSchema = Schema({
   },
   distanciaAlMar: {
     type: String,
-    require: true,
   },
   dosPlazas: {
     type: String,
@@ -78,23 +81,22 @@ const registerPublicationSchema = Schema({
     require: true,
   },
   opcionesConfort: {
-    type: String,
+    type: Array,
     require: true,
   },
   opcionesSeguridad: {
-    type: String,
+    type: Array,
     require: true,
   },
   youtubeVideo: {
     type: String,
-    require: true,
   },
   descripcionPropiedad: {
     type: String,
     require: true,
   },
   imagenesBase64: {
-    type: String,
+    type: Array,
     require: true,
   },
 });

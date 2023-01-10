@@ -18,6 +18,7 @@ export const useAuthStore = () => {
       const { data } = await authApi.post("/auth/login", { email, password });
       localStorage.setItem("token", data.jwtToken);
       localStorage.setItem("token-init-date", new Date().getTime());
+      localStorage.setItem("uid", data.uid);
       dispatch(onLogin({ name: data.name, uid: data.uid }));
       return true;
     } catch (error) {

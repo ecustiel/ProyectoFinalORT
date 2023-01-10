@@ -22,7 +22,7 @@ const ImgUploader = () => {
       baseURL = reader.result;
       let auxiliar = [];
       auxiliar = baseURL.split(",");
-      arrayPrueba.push(auxiliar[1] + "Title: " + file.name);
+      arrayPrueba.push(auxiliar[1]);
     };
   };
 
