@@ -12,7 +12,6 @@ const MultiSelectConfort = () => {
     publication.opcionesConfort = selectedOption.map(
       (selected) => selected.value
     );
-    console.log(publication);
   };
 
   const confortOptions = [

@@ -10,7 +10,7 @@ export const useRegisterPubStore = () => {
         "/registerProduct/regPublication",
         publication
       );
-      console.log(data);
+
       return true;
     } catch (error) {
       console.log(error);

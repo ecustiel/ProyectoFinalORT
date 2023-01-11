@@ -12,7 +12,6 @@ const MultiSelectSeguridad = () => {
     publication.opcionesSeguridad = selectedOption.map(
       (selected) => selected.value
     );
-    console.log(publication);
   };
 
   const securityOptions = [

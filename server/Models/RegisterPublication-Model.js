@@ -1,8 +1,12 @@
 const { Schema, model } = require("mongoose");
 
 const registerPublicationSchema = Schema({
-  idPublication: {
+  idUser: {
     type: String,
+    require: true,
+  },
+  idPub: {
+    type: Number,
     require: true,
   },
   title: {

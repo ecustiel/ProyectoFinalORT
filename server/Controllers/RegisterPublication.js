@@ -1,27 +1,47 @@
 const express = require("express");
+const { default: mongoose } = require("mongoose");
 const RegisterPublicationModel = require("../Models/RegisterPublication-Model");
 
+const counterSchema = {
+  id: {
+    type: String,
+  },
+  seq: {
+    type: Number,
+  },
+};
+
+const counterModel = mongoose.model("counter", counterSchema);
+
 const registerPublication = async (req, res) => {
-  //const { email, password } = req.body;
-
   try {
-    //Controlo si existe el mail
-    //tendria que buscar el usuario
-    //let usr = await User.findOne({email});
+    counterModel.findOneAndUpdate(
+      { id: "autoval" },
+      { $inc: { seq: 1 } },
+      { new: true },
+      async (err, cd) => {
+        let seqId;
+        if (cd == null) {
+          const newVal = new counterModel({ id: "autoval", seq: 1 });
+          newVal.save();
+          seqId = 1;
+        } else {
+          seqId = cd.seq;
+        }
 
-    let regPub = new RegisterPublicationModel(req.body);
-    console.log(regPub);
+        console.log(seqId);
+        let regPub = new RegisterPublicationModel(req.body);
+        regPub.idPub = seqId;
+        console.log(regPub);
+        //Guardo en Base
+        await regPub.save();
 
-    //Guardo en Base
-    await regPub.save();
-
-    //Genero el JWT
-    //const jwtToken = await generateJWT(usr.id, usr.name);
-
-    res.status(201).json({
-      ok: true,
-      msg: "Agregada Correctamente!",
-    });
+        res.status(201).json({
+          ok: true,
+          msg: "Agregada Correctamente!",
+        });
+      }
+    );
   } catch (error) {
     console.log(error);
     res.status(500).json({
