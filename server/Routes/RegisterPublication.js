@@ -9,6 +9,7 @@ router.post(
   "/regPublication",
   [
     check("title", "El titulo es obligatorio!").not().isEmpty(),
+    check("direccion", "La direccion es obligatoria!").not().isEmpty(),
     fieldValidator,
     //agregar las demas validaciones para el registro, separar con coma
   ],

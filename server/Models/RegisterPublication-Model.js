@@ -9,6 +9,10 @@ const registerPublicationSchema = Schema({
     type: Number,
     require: true,
   },
+  direccion: {
+    type: String,
+    require: true,
+  },
   title: {
     type: String,
     require: true,

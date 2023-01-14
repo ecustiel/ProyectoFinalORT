@@ -1353,6 +1353,21 @@
   dependencies:
     prop-types "^15.8.1"
 
+"@googlemaps/js-api-loader@1.15.1":
+  version "1.15.1"
+  resolved "https://registry.yarnpkg.com/@googlemaps/js-api-loader/-/js-api-loader-1.15.1.tgz#7d5f1d55a4ec5c99b1d8f0708f3a46b83a71384c"
+  integrity sha512-AsnEgNsB7S/VdrHGEQUaUM2e5tmjFGKBAfzR/AqO8O7TPq/jQGvoRw5liPBw4EMF38RDsHmKDV89q/X+qiUREQ==
+  dependencies:
+    fast-deep-equal "^3.1.3"
+
+"@googlemaps/markerclusterer@2.0.13":
+  version "2.0.13"
+  resolved "https://registry.yarnpkg.com/@googlemaps/markerclusterer/-/markerclusterer-2.0.13.tgz#cb61db9be52c9d8b061dfad77dca33b2965e7b2a"
+  integrity sha512-302GjQ9gsHOK/ef6hif+rJDv+AB3THst02iDCbXH2PS9GFwb/5yuytaLpuzJiqGNG+k2zvTAWTsGY/fQN5DZ7w==
+  dependencies:
+    fast-deep-equal "^3.1.3"
+    supercluster "^7.1.3"
+
 "@humanwhocodes/config-array@^0.11.6":
   version "0.11.6"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.6.tgz#6a51d603a3aaf8d4cf45b42b3f2ac9318a4adc4b"
@@ -1736,6 +1751,28 @@
   integrity sha512-yNqUDuOVZIUGP81R87BJVi/ZUZp/nYOBXbPsRe7oltJOfErQZD+UezMpw4vM2KRz18cURffvmC8tJ6JTeyDtaQ==
   dependencies:
     "@babel/runtime" "^7.6.2"
+
+"@react-google-maps/api@^2.17.1":
+  version "2.17.1"
+  resolved "https://registry.yarnpkg.com/@react-google-maps/api/-/api-2.17.1.tgz#6f783f01deeffc09ae478a9a971666ae2cadc71b"
+  integrity sha512-XesubSCFfyMtilqljF2kU5zdPru4nks4I4O0HH6H2xOw51wQXs26btJKlRac2/jbJ/gIiGZ/l14q0xaL/6OaBg==
+  dependencies:
+    "@googlemaps/js-api-loader" "1.15.1"
+    "@googlemaps/markerclusterer" "2.0.13"
+    "@react-google-maps/infobox" "2.16.0"
+    "@react-google-maps/marker-clusterer" "2.16.1"
+    "@types/google.maps" "3.50.5"
+    invariant "2.2.4"
+
+"@react-google-maps/infobox@2.16.0":
+  version "2.16.0"
+  resolved "https://registry.yarnpkg.com/@react-google-maps/infobox/-/infobox-2.16.0.tgz#871423de1a1ffb08518927b083b239d92e58ce4e"
+  integrity sha512-ZojiMS25388RcUHQPycUAerSqdHDom+3dHczVcXHdT/i8fka3O8InkHxXwMhvBoM143ips7mv2BPaYOAJ5f4Nw==
+
+"@react-google-maps/marker-clusterer@2.16.1":
+  version "2.16.1"
+  resolved "https://registry.yarnpkg.com/@react-google-maps/marker-clusterer/-/marker-clusterer-2.16.1.tgz#882878a7b49ce9ae44c7b02ff6fbc4c2aeb77c95"
+  integrity sha512-jOuyqzWLeXvQcoAu6TCVWHAuko+sDt0JjawNHBGqUNLywMtTCvYP0L0PiqJZOUCUeRYGdUy0AKxQ+30vAkvwag==
 
 "@reduxjs/toolkit@^1.9.0":
   version "1.9.0"
@@ -2141,6 +2178,11 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
+"@types/google.maps@3.50.5":
+  version "3.50.5"
+  resolved "https://registry.yarnpkg.com/@types/google.maps/-/google.maps-3.50.5.tgz#a0d12675b547205fc163c4b8d999db305ba3862a"
+  integrity sha512-RuZf1MJtctGlpW+Gd4a/eGtAufUDjMf+eyN1l+B3fbe2YLScJbg8KEljJfb+6vnSPFAeM1/48geVIEg3vqOkxw==
+
 "@types/graceful-fs@^4.1.2":
   version "4.1.5"
   resolved "https://registry.yarnpkg.com/@types/graceful-fs/-/graceful-fs-4.1.5.tgz#21ffba0d98da4350db64891f92a9e5db3cdb4e15"
@@ -2465,6 +2507,11 @@
   dependencies:
     "@typescript-eslint/types" "5.41.0"
     eslint-visitor-keys "^3.3.0"
+
+"@ubilabs/google-maps-react-hooks@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@ubilabs/google-maps-react-hooks/-/google-maps-react-hooks-2.0.2.tgz#e9c7b2d570485e7f5fc71a5e8f01868c3106de34"
+  integrity sha512-rKs2p9+G2r/fKRykltcjyx6CTjC7/yLQWPxeiohbaGMX9CSPeH5HiDNko/WwtNd5HPAf5awyVSL7aKhjyw0aUA==
 
 "@webassemblyjs/ast@1.11.1":
   version "1.11.1"
@@ -5306,7 +5353,7 @@ internal-slot@^1.0.3:
     has "^1.0.3"
     side-channel "^1.0.4"
 
-invariant@^2.2.4:
+invariant@2.2.4, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
@@ -6270,6 +6317,11 @@ jsonpointer@^5.0.0:
   dependencies:
     array-includes "^3.1.5"
     object.assign "^4.1.3"
+
+kdbush@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/kdbush/-/kdbush-3.0.0.tgz#f8484794d47004cc2d85ed3a79353dbe0abc2bf0"
+  integrity sha512-hRkd6/XW4HTsA9vjVpY9tuXJYLSlelnkTmVFu4M9/7MIYQtFcHpbugAU7UbOfjOiVSVYl2fqgBuJ32JUmRo5Ew==
 
 kind-of@^6.0.2:
   version "6.0.3"
@@ -7632,7 +7684,7 @@ prop-types-extra@^1.1.0:
     react-is "^16.3.2"
     warning "^4.0.0"
 
-prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.8.1:
+prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -7817,6 +7869,14 @@ react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+
+react-places-autocomplete@^7.3.0:
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/react-places-autocomplete/-/react-places-autocomplete-7.3.0.tgz#81a2345ae4a6fc35d7a712ccd4850d497553ba1b"
+  integrity sha512-86wcHC69JATvWBnIS/yCsBHLtwzOGcnx3Ye94u74yTrz1jLRC/txkVDkf6rvC+Jq3zNe/tAg/W53x0EaH1ZPPw==
+  dependencies:
+    lodash.debounce "^4.0.8"
+    prop-types "^15.5.8"
 
 react-redux@^8.0.5:
   version "8.0.5"
@@ -8744,6 +8804,13 @@ stylis@4.1.3:
   version "4.1.3"
   resolved "https://registry.yarnpkg.com/stylis/-/stylis-4.1.3.tgz#fd2fbe79f5fed17c55269e16ed8da14c84d069f7"
   integrity sha512-GP6WDNWf+o403jrEp9c5jibKavrtLW+/qYGhFxFrG8maXhwTBI7gLLhiBb0o7uFccWN+EOS9aMO6cGHWAO07OA==
+
+supercluster@^7.1.3:
+  version "7.1.5"
+  resolved "https://registry.yarnpkg.com/supercluster/-/supercluster-7.1.5.tgz#65a6ce4a037a972767740614c19051b64b8be5a3"
+  integrity sha512-EulshI3pGUM66o6ZdH3ReiFcvHpM3vAigyK+vcxdjpJyEbIIrtbmBdY23mGgnI24uXiGFvrGq9Gkum/8U7vJWg==
+  dependencies:
+    kdbush "^3.0.0"
 
 supports-color@^5.3.0:
   version "5.5.0"

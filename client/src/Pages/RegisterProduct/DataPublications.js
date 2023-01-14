@@ -1,6 +1,7 @@
 export const publicationData = {
   idPub: "",
   idUser: "",
+  direccion: "",
   title: "",
   temp1: "Temporada Alta",
   pric1: "",

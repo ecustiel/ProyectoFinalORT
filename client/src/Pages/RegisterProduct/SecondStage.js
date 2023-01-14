@@ -1,6 +1,17 @@
-import { useState } from "react";
-import { Button, Col, Form, Row, InputGroup } from "react-bootstrap";
+import { GoogleMap } from "@react-google-maps/api";
+import { useState, useRef } from "react";
+import {
+  Button,
+  Col,
+  Form,
+  Row,
+  InputGroup,
+  FormGroup,
+  FormControl,
+} from "react-bootstrap";
 import useFormContext from "../../Hooks/useFormContext";
+import Home from "../RegisterProduct/MapaDirecciones";
+import { Autocomplete } from "@react-google-maps/api";
 
 export default function SecondStage() {
   const { publication, handleChange } = useFormContext();
@@ -49,6 +60,11 @@ export default function SecondStage() {
             <option value="smlFarm">Estancia</option>
           </Form.Select>
         </Form.Group>
+
+        <FormGroup>
+          <hr />
+          <Home />
+        </FormGroup>
       </Form>
     </div>
   );

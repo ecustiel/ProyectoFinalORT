@@ -41,7 +41,8 @@ export const Pagination = () => {
       ) {
         if (
           publication.cantHuespedes !== "" &&
-          publication.tipoPropiedad !== ""
+          publication.tipoPropiedad !== "" &&
+          publication.direccion !== ""
         ) {
           if (
             publication.cantDormitorios !== "" &&
@@ -93,7 +94,8 @@ export const Pagination = () => {
         } else {
           Toast.fire({
             icon: "warning",
-            title: "Debe indicar Cantidad de Huespedes y Tipo de Propiedad!",
+            title:
+              "Debe indicar Cantidad de Huespedes, Tipo de Propiedad y Direccion!",
           });
         }
       } else {
