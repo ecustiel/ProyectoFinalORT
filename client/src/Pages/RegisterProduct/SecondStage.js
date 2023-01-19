@@ -54,16 +54,35 @@ export default function SecondStage() {
             onChange={handleChange}
           >
             <option>Tipo Propiedad</option>
-            <option value="house">Casa</option>
-            <option value="apto">Apartamento</option>
-            <option value="cabin">Cabaña</option>
-            <option value="smlFarm">Estancia</option>
+            <option value="Casa">Casa</option>
+            <option value="Apartamento">Apartamento</option>
+            <option value="Cabaña">Cabaña</option>
+            <option value="Estancia">Estancia</option>
           </Form.Select>
         </Form.Group>
 
         <FormGroup>
           <hr />
           <Home />
+
+          <Form.Label className="w-100 mt-4">
+            <b>Balneario </b>
+          </Form.Label>
+          <Form.Select
+            className="w-50"
+            name="tipoPropiedad"
+            value={publication.balneario}
+            onChange={handleChange}
+          >
+            <option value="Piriapolis">Piriapolis</option>
+            <option value="La Paloma">La Paloma</option>
+            <option value="La Esmeralda">La Esmeralda</option>
+            <option value="Valizas">Valizas</option>
+            <option value="Santa Teresa">Santa Teresa</option>
+            <option value="Las Toscas">Las Toscas</option>
+            <option value="La Coronilla">La Coronilla</option>
+            <option value="Otro">Otro</option>
+          </Form.Select>
         </FormGroup>
       </Form>
     </div>

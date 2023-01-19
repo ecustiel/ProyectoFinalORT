@@ -42,7 +42,8 @@ export const Pagination = () => {
         if (
           publication.cantHuespedes !== "" &&
           publication.tipoPropiedad !== "" &&
-          publication.direccion !== ""
+          publication.direccion !== "" &&
+          publication.balneario !== ""
         ) {
           if (
             publication.cantDormitorios !== "" &&

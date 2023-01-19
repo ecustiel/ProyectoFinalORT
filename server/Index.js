@@ -26,6 +26,7 @@ app.use(express.json());
 //Rutas
 app.use("/api/auth", require("./Routes/Auth"));
 app.use("/api/registerProduct", require("./Routes/RegisterPublication"));
+app.use("/api/search", require("./Routes/RegisterPublication"));
 
 //Peticiones
 app.listen(process.env.PORT, () => {

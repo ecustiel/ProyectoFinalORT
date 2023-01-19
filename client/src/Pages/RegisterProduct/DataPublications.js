@@ -9,6 +9,7 @@ export const publicationData = {
   pric2: "",
   temp3: "Temporada Baja",
   pric3: "",
+  balneario: "",
   cantHuespedes: "",
   tipoPropiedad: "",
   cantDormitorios: "",

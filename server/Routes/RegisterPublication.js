@@ -2,7 +2,10 @@ const express = require("express");
 const router = express.Router();
 const { check } = require("express-validator");
 const { fieldValidator } = require("../Middlewares/Field-Validator");
-const { registerPublication } = require("../Controllers/RegisterPublication");
+const {
+  registerPublication,
+  getPublications,
+} = require("../Controllers/RegisterPublication");
 
 //Registro
 router.post(
@@ -15,5 +18,8 @@ router.post(
   ],
   registerPublication
 );
+
+//Obtener Publicaciones
+router.get("/", getPublications);
 
 module.exports = router;

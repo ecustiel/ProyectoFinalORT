@@ -51,4 +51,20 @@ const registerPublication = async (req, res) => {
   }
 };
 
-module.exports = { registerPublication };
+const getPublications = async (req, res) => {
+  try {
+    const publicationsFromDB = await RegisterPublicationModel.find();
+    console.log(publicationsFromDB);
+    res.json({
+      ok: true,
+      publicationsFromDB,
+    });
+  } catch (error) {
+    res.status(500).json({
+      ok: false,
+      msg: "Error!",
+    });
+  }
+};
+
+module.exports = { registerPublication, getPublications };

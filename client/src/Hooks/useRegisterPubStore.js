@@ -18,7 +18,18 @@ export const useRegisterPubStore = () => {
     }
   };
 
+  const getPublications = async () => {
+    try {
+      const { data } = await registerPub.get("/search");
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return {
     regPublication,
+    getPublications,
   };
 };
