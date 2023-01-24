@@ -26,11 +26,11 @@ const SliderProton = ({ value, changedPrice }) => {
         getAriaLabel={(index) =>
           index === 0 ? "Minimum price" : "Maximum price"
         }
-        defaultValue={[100, 25000]}
+        defaultValue={[100, 5000]}
         value={value}
         onChange={changedPrice}
         min={50}
-        max={50000}
+        max={6000}
         valueLabelDisplay="auto"
         classes={{
           thumb: classes.thumb,

@@ -22,7 +22,7 @@ export const RegisterPage = () => {
   const {startRegister, errorMessage} = useAuthStore();
   const {name, surname, address, city, celNumber, email, password, password2, onInputChange} = useForm(registerFormFields);
   const navigate = useNavigate();
-  console.log(registerFormFields);
+  //console.log(registerFormFields);
 
   const registerSubmit = (event) => {
     event.preventDefault();

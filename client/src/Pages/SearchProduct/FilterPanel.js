@@ -45,18 +45,7 @@ const FilterPanel = ({
   });
 
   /*
-  useEffect(() => {
-    let ignore = false;
-    async function fetchData() {
-      await getPublications().then((item) => {
-        setDataPublications(item.publicationsFromDB);
-      });
-    }
-    if (!ignore) fetchData();
-    return () => {
-      ignore = true;
-    };
-  }, []);
+  
 
   dataPublications.map((item) => {
     if (
@@ -73,7 +62,7 @@ const FilterPanel = ({
       return false;
     }
   });*/
-  //console.log(dataPublications);
+
 
   return (
     <div>
