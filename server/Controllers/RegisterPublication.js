@@ -67,4 +67,24 @@ const getPublications = async (req, res) => {
   }
 };
 
-module.exports = { registerPublication, getPublications };
+const getPublicationsById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    console.log(id);
+    const publication = await RegisterPublicationModel.findOne({
+      idPub: parseInt(id),
+    });
+    //console.log(publication);
+    res.status(200).json({
+      ok: true,
+      publication,
+    });
+  } catch (error) {
+    res.status(500).json({
+      ok: false,
+      msg: "Error!",
+    });
+  }
+};
+
+module.exports = { registerPublication, getPublications, getPublicationsById };

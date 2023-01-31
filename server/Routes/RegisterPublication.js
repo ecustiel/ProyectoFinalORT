@@ -5,6 +5,7 @@ const { fieldValidator } = require("../Middlewares/Field-Validator");
 const {
   registerPublication,
   getPublications,
+  getPublicationsById,
 } = require("../Controllers/RegisterPublication");
 
 //Registro
@@ -21,5 +22,8 @@ router.post(
 
 //Obtener Publicaciones
 router.get("/", getPublications);
+
+//Obtener Publicaciones por id
+router.get("/:id", getPublicationsById);
 
 module.exports = router;

@@ -5,6 +5,7 @@ import {
   Routes,
   Route,
   Redirect,
+  useParams,
 } from "react-router-dom";
 import Layout from "../Components/Layouts/Layout";
 import { useAuthStore } from "../Hooks/useAuthStore";
@@ -15,11 +16,14 @@ import PerfilPage from "../Pages/PerfilPage";
 import RegisterPage from "../Pages/RegisterPage";
 import SearchPage from "../Pages/SearchPage";
 import Pagination from "../Pages/RegisterProduct/Pagination";
+import PublicationPage from "../Pages/PublicationProduct/PublicationPage";
 import RegisterProductPage from "../Pages/RegisterProduct/RegisterProductPage";
 
 export default function AppRouter() {
   const { status, checkAuthToken } = useAuthStore();
 
+  const { id } = useParams();
+  console.log(id);
   useEffect(() => {
     checkAuthToken();
   }, []);
@@ -43,6 +47,11 @@ export default function AppRouter() {
               <Route exact path="/perfil" element={<PerfilPage />} />
               <Route exact path="/search" element={<SearchPage />} />
               <Route exact path="/registerProduct" element={<Pagination />} />
+              <Route
+                exact
+                path={`/publication/:id`}
+                element={<PublicationPage />}
+              />
             </>
           )}
           <Route

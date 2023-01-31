@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Carousel } from "rsuite";
+import { generatePath, useNavigate, Link } from "react-router-dom";
 import "./ListItemData.css";
 
 const ListItemData = ({
@@ -9,8 +10,16 @@ const ListItemData = ({
   const [imagenesSinConvertir, setImagenesSinConvertir] =
     useState(imagenesBase64);
 
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //console.log(idPub);
+    navigate(`/publication/${idPub}`);
+  };
+
   return (
-    <div className="listItem-wrap" onClick={() => alert("Test")}>
+    <div className="listItem-wrap" onClick={handleSubmit}>
       <Carousel autoplay className="custom-slider">
         {imagenesSinConvertir.map((item) => {
           return <img src={`data:image/jpg;base64,${item}`} alt="img" />;
