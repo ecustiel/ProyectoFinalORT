@@ -25,7 +25,7 @@ export default function Navigation() {
             </>
           ) : (
             <>
-              <Nav.Link as={NavLink} to="/perfil">
+              <Nav.Link as={NavLink} to="/profile">
                 Mi Perfil
               </Nav.Link>
               <Nav.Link as={NavLink} to="/search">
@@ -33,6 +33,9 @@ export default function Navigation() {
               </Nav.Link>
               <Nav.Link as={NavLink} to="/registerProduct">
                 Registrar Publicacion
+              </Nav.Link>
+              <Nav.Link as={NavLink} to="/itemsControl">
+                Sistema Inventario Publicaciones
               </Nav.Link>
             </>
           )}

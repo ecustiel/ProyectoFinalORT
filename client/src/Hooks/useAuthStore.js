@@ -84,6 +84,32 @@ export const useAuthStore = () => {
     dispatch(onLogout());
   };
 
+  const updateProfile = async (user) => {
+    console.log(user);
+    try {
+      const { data } = await authApi.post("/auth/profile", user);
+      console.log(data);
+
+      //dispatch(onLogin({ name: data.name, uid: data.uid }));
+      return true;
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  };
+
+  const getUser = async () => {
+    try {
+      const { data } = await authApi.get("/auth/profile");
+      //console.log(data);
+
+      return data;
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  };
+
   return {
     status,
     errorMessage,
@@ -92,5 +118,7 @@ export const useAuthStore = () => {
     startRegister,
     checkAuthToken,
     startLogout,
+    updateProfile,
+    getUser,
   };
 };

@@ -127,7 +127,9 @@ const PublicationPage = () => {
               </div>
             </div>
             <ButtonToolbar className="sec-boton-reserva">
-              <Button appearance="ghost">Reservar!</Button>
+              <Button appearance="ghost" className="boton-reserva">
+                Reservar!
+              </Button>
             </ButtonToolbar>
           </Panel>
         </div>

@@ -18,6 +18,7 @@ import SearchPage from "../Pages/SearchPage";
 import Pagination from "../Pages/RegisterProduct/Pagination";
 import PublicationPage from "../Pages/PublicationProduct/PublicationPage";
 import RegisterProductPage from "../Pages/RegisterProduct/RegisterProductPage";
+import ItemsControlPage from "../Pages/HouseItemsControl/ItemsControlPage";
 
 export default function AppRouter() {
   const { status, checkAuthToken } = useAuthStore();
@@ -44,13 +45,18 @@ export default function AppRouter() {
           )}
           {status === "authenticated" && (
             <>
-              <Route exact path="/perfil" element={<PerfilPage />} />
+              <Route exact path="/profile" element={<PerfilPage />} />
               <Route exact path="/search" element={<SearchPage />} />
               <Route exact path="/registerProduct" element={<Pagination />} />
               <Route
                 exact
                 path={`/publication/:id`}
                 element={<PublicationPage />}
+              />
+              <Route
+                exact
+                path="/itemsControl"
+                element={<ItemsControlPage />}
               />
             </>
           )}
