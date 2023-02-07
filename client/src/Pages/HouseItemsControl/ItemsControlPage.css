@@ -1,0 +1,22 @@
+.panel-arriba {
+    margin: 5%;
+    margin-top: 2%;
+}
+
+.ringClassNo {
+    margin-left: 50%;
+}
+
+.panel-abajo {
+    margin: 5%;
+    margin-top: 2%;
+    width: 50%;
+    float: left;
+}
+
+.panel-derecha {
+    float: left;
+    margin-top: 2%;
+    margin-right: 5%;
+    width: 30%;
+}
