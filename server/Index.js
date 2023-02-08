@@ -29,6 +29,7 @@ app.use("/api/registerProduct", require("./Routes/RegisterPublication"));
 app.use("/api/search", require("./Routes/RegisterPublication"));
 app.use("/api/publication", require("./Routes/RegisterPublication"));
 app.use("/api/itemsControl", require("./Routes/RegisterPublication"));
+app.use("/api/itemsControl", require("./Routes/ItemList"));
 
 //Peticiones
 app.listen(process.env.PORT, () => {

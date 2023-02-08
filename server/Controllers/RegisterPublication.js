@@ -1,6 +1,7 @@
 const express = require("express");
 const { default: mongoose } = require("mongoose");
 const RegisterPublicationModel = require("../Models/RegisterPublication-Model");
+const itemList = require("../Models/ItemList-Model");
 
 const counterSchema = {
   id: {
@@ -87,4 +88,34 @@ const getPublicationsById = async (req, res) => {
   }
 };
 
-module.exports = { registerPublication, getPublications, getPublicationsById };
+const itemListRegister = async (req, res) => {
+  const data = req.body;
+
+  try {
+    itemList
+      .insertMany(req.body)
+      .then(() => {
+        res.status(201);
+        res.json({
+          success: true,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).send({ errorMessage: "Error en la carga" });
+      });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      ok: false,
+      msg: "Errores al ingresar los datos!",
+    });
+  }
+};
+
+module.exports = {
+  registerPublication,
+  getPublications,
+  getPublicationsById,
+  itemListRegister,
+};

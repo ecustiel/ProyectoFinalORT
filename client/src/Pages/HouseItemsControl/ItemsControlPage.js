@@ -12,7 +12,7 @@ import ItemsQuantityAndPriceList from "./ItemsQuantityAndPrice/ItemsQuantityAndP
 
 const ItemsControlPage = () => {
   const { user } = useSelector((state) => state.auth);
-  const { getPublications } = useRegisterPubStore();
+  const { getPublications, itemListRegister } = useRegisterPubStore();
   const [dataPublicationsToWork, setDataPublicationsToWork] = useState([]);
   const [dataPublications, setDataPublications] = useState([]);
   const [trueOrFalse, setTrueOrFalse] = useState(false);
@@ -71,6 +71,25 @@ const ItemsControlPage = () => {
     setShowPanel(true);
   };
 
+  const addItemListToBase = async (e) => {
+    e.preventDefault();
+    if ((await itemListRegister(items)) === true) {
+      Toast.fire({
+        title: "Exito!",
+        text: "Agregada a Publicacion Correctamente!",
+        icon: "success",
+        confirmButtonText: "Ok!",
+      });
+    } else {
+      Toast.fire({
+        title: "Error!",
+        text: "Error al Agregar Lista! Verifique!",
+        icon: "error",
+        confirmButtonText: "Ok!",
+      });
+    }
+  };
+
   console.log(items);
   console.log(contador);
 
@@ -111,7 +130,12 @@ const ItemsControlPage = () => {
         ))}
 
         <div className="d-grid gap-2">
-          <Button variant="info" className="mt-3" size="lg">
+          <Button
+            variant="info"
+            className="mt-3"
+            size="lg"
+            onClick={addItemListToBase}
+          >
             {" "}
             Agregar Lista a Propiedad!{" "}
           </Button>

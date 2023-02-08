@@ -38,9 +38,21 @@ export const useRegisterPubStore = () => {
     }
   };
 
+  const itemListRegister = async (itemList) => {
+    try {
+      const { data } = await registerPub.post("/itemsControl", itemList);
+
+      return true;
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  };
+
   return {
     regPublication,
     getPublications,
     getPublicationsById,
+    itemListRegister,
   };
 };
