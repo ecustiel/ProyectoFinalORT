@@ -15,8 +15,10 @@
     outline: none;
     border: none;
     width: 100%;
+    border-radius: 25px;
 }
 
 .searchBar-wrap input::placeholder{
     color: rgba(0, 0, 0, .26);
+    text-align: center;
 }

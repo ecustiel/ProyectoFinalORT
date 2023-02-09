@@ -16,12 +16,12 @@ const useStyles = makeStyles({
     width: "100%",
     display: "block",
     flexDirection: "row-reverse",
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "left",
-    marginLeft: 0,
+    marginLeft: "20px",
   },
   label: {
-    fontSize: ".8rem",
+    fontSize: ".9rem",
   },
 });
 

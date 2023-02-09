@@ -33,8 +33,12 @@
 }
 
 .listItemControl-wrap header{
-    font-size: 10px;
+    font-size: 5px;
    text-align: center;
     margin: auto;
 }
 
+.listItemControl-wrap h4{
+    font-size: 15px;
+  
+}

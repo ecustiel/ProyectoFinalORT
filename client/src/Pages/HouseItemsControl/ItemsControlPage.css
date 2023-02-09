@@ -20,3 +20,20 @@
     margin-right: 5%;
     width: 30%;
 }
+
+.panel-derecha-estilos Button{
+    color: #E08E45;
+    background-color: #6B2737;
+border: none;
+}
+
+.panel-derecha-estilos:hover Button{
+    color: #6B2737;
+    background-color: #E08E45;
+border: none;
+}
+
+.panel-derecha-estilos h2 {
+    margin-left: 5%;
+    margin-top: 1%;
+}

@@ -18,7 +18,7 @@ const useStyles = makeStyles({
       borderRadius: "10px",
     },
     "&.MuiToggleButtonGroup-groupedHorizontal:not(:first-child)": {
-      borderRadius: "10px",
+      borderRadius: "5px",
       border: "1px solid rgba(0, 0, 0, 0.12)",
       width: "90px",
     },

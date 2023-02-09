@@ -140,29 +140,31 @@ export const Pagination = () => {
   }
 
   return (
-    <div className="mt-5 w-75 vh-75 mx-auto">
-      <Steps current={step}>
-        <Steps.Item title="Paso 1" description="Datos de la Operacion" />
-        <Steps.Item title="Paso 2" description="Datos Generales" />
-        <Steps.Item title="Paso 3" description="Detalles de la Propiedad" />
-        <Steps.Item title="Paso 4" description="Confort" />
-        <Steps.Item title="Paso 5" description="Gestion de Imagenes" />
-        <Steps.Item title="Finalizar" description="Descripcion" />
-      </Steps>
-      <hr />
-      <Panel shaded>{Render}</Panel>
+    <div className="fondoPagination">
+      <div className="mt-5 w-75 vh-75 mx-auto">
+        <Steps current={step}>
+          <Steps.Item title="Paso 1" description="Datos de la Operacion" />
+          <Steps.Item title="Paso 2" description="Datos Generales" />
+          <Steps.Item title="Paso 3" description="Detalles de la Propiedad" />
+          <Steps.Item title="Paso 4" description="Confort" />
+          <Steps.Item title="Paso 5" description="Gestion de Imagenes" />
+          <Steps.Item title="Finalizar" description="Descripcion" />
+        </Steps>
+        <hr />
+        <Panel shaded>{Render}</Panel>
 
-      <ButtonGroup className="btnGroup">
-        <Button onClick={onPrevious} disabled={step === 0}>
-          Previous
-        </Button>
-        <Button onClick={onNext} disabled={step === 5}>
-          Next
-        </Button>
-        <Button onClick={onSubmit} disabled={step !== 5}>
-          Confirmar
-        </Button>
-      </ButtonGroup>
+        <ButtonGroup className="btnGroup">
+          <Button onClick={onPrevious} disabled={step === 0}>
+            Previous
+          </Button>
+          <Button onClick={onNext} disabled={step === 5}>
+            Next
+          </Button>
+          <Button onClick={onSubmit} disabled={step !== 5}>
+            Confirmar
+          </Button>
+        </ButtonGroup>
+      </div>
     </div>
   );
 };

@@ -18,16 +18,28 @@
 }
 
 .home_panel-wrap{
-    flex-basis: 300px;
+    flex-basis: 350px;
     padding: 1rem;
 }
 
 .home_list-wrap{
     flex: 1;
-    padding: 1rem;
+    padding: 3rem;
 }
 
 .ringClass{
     margin-top: 15%;
     margin-left: 40%;
+}
+
+.boton-reset-filters{
+    width: 100%;
+    color: #E08E45;
+    background-color: #6B2737;
+    font-size: 20px;
+}
+
+.boton-reset-filters:hover {
+    color: #6B2737;
+    background-color: #E08E45;
 }

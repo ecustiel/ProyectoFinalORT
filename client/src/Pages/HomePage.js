@@ -1,11 +1,11 @@
-import React from 'react';
-
-
+import React from "react";
+import fondoHome from "../Imagenes/fondoHome.jpg";
+import "./HomePage.css";
 
 export default function HomePage() {
   return (
     <div>
-        <h1>HomePage   </h1>
+      <img src={fondoHome} alt="Fondo Vacaciones" className="img-fondo" />
     </div>
-  )
+  );
 }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuthStore } from "../Hooks/useAuthStore";
+import "./Navigation.css";
 
 export default function Navigation() {
   const [hidden, setHidden] = useState(true);
@@ -16,25 +17,25 @@ export default function Navigation() {
         <Nav className="mr-auto">
           {status === "not-authenticated" ? (
             <>
-              <Nav.Link as={NavLink} to="/login">
+              <Nav.Link className="navStyle" as={NavLink} to="/login">
                 Iniciar Sesión
               </Nav.Link>
-              <Nav.Link as={NavLink} to="/register">
+              <Nav.Link className="navStyle" as={NavLink} to="/register">
                 Registrarse
               </Nav.Link>
             </>
           ) : (
             <>
-              <Nav.Link as={NavLink} to="/profile">
+              <Nav.Link className="navStyle" as={NavLink} to="/profile">
                 Mi Perfil
               </Nav.Link>
-              <Nav.Link as={NavLink} to="/search">
+              <Nav.Link className="navStyle" as={NavLink} to="/search">
                 Busqueda
               </Nav.Link>
-              <Nav.Link as={NavLink} to="/registerProduct">
+              <Nav.Link className="navStyle" as={NavLink} to="/registerProduct">
                 Registrar Publicacion
               </Nav.Link>
-              <Nav.Link as={NavLink} to="/itemsControl">
+              <Nav.Link className="navStyle" as={NavLink} to="/itemsControl">
                 Sistema Inventario Publicaciones
               </Nav.Link>
             </>

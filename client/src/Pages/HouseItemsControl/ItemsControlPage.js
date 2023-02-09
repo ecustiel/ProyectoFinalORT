@@ -26,6 +26,36 @@ const ItemsControlPage = () => {
   //arreglar que si id es distinto borre la lista
   const addItem = (item) => {
     if (showPanel) {
+      if (item.nombre === "") {
+        Toast.fire({
+          title: "Error!",
+          text: "Inserte un Nombre al Item!",
+          icon: "error",
+          confirmButtonText: "Ok!",
+        });
+        return;
+      }
+
+      if (item.cantidad === "") {
+        Toast.fire({
+          title: "Error!",
+          text: "Inserte una Cantidad!",
+          icon: "error",
+          confirmButtonText: "Ok!",
+        });
+        return;
+      }
+
+      if (item.precio === "") {
+        Toast.fire({
+          title: "Error!",
+          text: "Inserte un Precio!",
+          icon: "error",
+          confirmButtonText: "Ok!",
+        });
+        return;
+      }
+
       setContador(contador + 1);
       setItems([...items, item]);
     } else {
@@ -90,11 +120,8 @@ const ItemsControlPage = () => {
     }
   };
 
-  console.log(items);
-  console.log(contador);
-
   return (
-    <div>
+    <div className="panel-derecha-estilos">
       <h2>Seleccione Una de Sus Publicaciones!</h2>
       <Panel className="panel-arriba" shaded>
         {dataPublicationsToWork.length > 0 ? (

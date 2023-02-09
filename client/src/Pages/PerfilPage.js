@@ -5,6 +5,7 @@ import { Panel } from "rsuite";
 import { useAuthStore } from "../Hooks/useAuthStore";
 import { useForm } from "../Hooks/useForm";
 import { Toast } from "../Helpers/SwalHelpers";
+import "./PerfilPage.css";
 
 let uid = "";
 
@@ -87,9 +88,9 @@ export default function PerfilPage() {
 
   return (
     <div>
-      <Panel shaded>
+      <Panel className="panel-perfil" shaded>
         <Row className="profileContainer">
-          <Col md={6}>
+          <Col md={12}>
             <Form onSubmit={submitHandler}>
               <Form.Group controlId="nombre">
                 <Form.Label>Nombre</Form.Label>
@@ -173,7 +174,7 @@ export default function PerfilPage() {
                 ></Form.Control>
               </Form.Group>{" "}
               <Button type="submit" className="mt-2" varient="primary">
-                Update
+                Actualizar Informacion
               </Button>
             </Form>
           </Col>

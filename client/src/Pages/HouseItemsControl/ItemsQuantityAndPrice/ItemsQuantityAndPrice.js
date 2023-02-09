@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
+import "./ItemsQuantityAndPrice.css";
 
 const ItemsQuantityAndPrice = ({ addItemFun, idPublicacion, contador }) => {
   //Lista de Items
@@ -23,7 +24,7 @@ const ItemsQuantityAndPrice = ({ addItemFun, idPublicacion, contador }) => {
   };
 
   return (
-    <div>
+    <div className="panel-izquierda-estilos">
       <Form.Group className="mb-3" id="title">
         <Form.Label>
           <strong>
@@ -40,7 +41,7 @@ const ItemsQuantityAndPrice = ({ addItemFun, idPublicacion, contador }) => {
         </Form.Label>
         <Form.Control
           name="name"
-          placeholder="Nombre del Producto"
+          placeholder="Ej: Heladera"
           id="name"
           value={nombre}
           onChange={(e) => {
@@ -53,7 +54,7 @@ const ItemsQuantityAndPrice = ({ addItemFun, idPublicacion, contador }) => {
         </Form.Label>
         <Form.Control
           name="quantity"
-          placeholder="Cantidad"
+          placeholder="Ej: 1"
           id="quantity"
           value={cantidad}
           onChange={(e) => {
@@ -66,7 +67,7 @@ const ItemsQuantityAndPrice = ({ addItemFun, idPublicacion, contador }) => {
         </Form.Label>
         <Form.Control
           name="price"
-          placeholder="Precio (Por Unidad)"
+          placeholder="Ej: 12000"
           id="price"
           value={precio}
           onChange={(e) => {

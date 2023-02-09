@@ -5,6 +5,7 @@ import ListItem from "../Pages/SearchProduct/ListItem";
 import { useRegisterPubStore } from "../Hooks/useRegisterPubStore";
 import { SyncLoader } from "react-spinners";
 import "./SearchPage.css";
+import { Button } from "rsuite";
 
 export default function SearchPage() {
   const { getPublications } = useRegisterPubStore();
@@ -98,6 +99,23 @@ export default function SearchPage() {
 
   const handleChangePrice = (event, value) => setSelectedPrice(value);
 
+  const resetFilters = (e) => {
+    e.preventDefault();
+    setDataPublications(dataPublicationsStart);
+    setSelectedCategory(null);
+    setSelectedPrice([50, 1500]);
+    setBalnearios([
+      { id: 1, checked: false, label: "Piriapolis" },
+      { id: 2, checked: false, label: "La Paloma" },
+      { id: 3, checked: false, label: "La Esmeralda" },
+      { id: 4, checked: false, label: "Valizas" },
+      { id: 5, checked: false, label: "Santa Teresa" },
+      { id: 6, checked: false, label: "Las Toscas" },
+      { id: 7, checked: false, label: "La Coronilla" },
+      { id: 8, checked: false, label: "Otro" },
+    ]);
+  };
+
   return (
     <div className="home">
       <SearchBar
@@ -115,6 +133,9 @@ export default function SearchPage() {
             selectedPrice={selectedPrice}
             changedPrice={handleChangePrice}
           />
+          <Button className="boton-reset-filters" onClick={resetFilters}>
+            Quitar Filtros
+          </Button>
         </div>
 
         <div className="home_list-wrap">
