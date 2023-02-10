@@ -59,7 +59,6 @@ export const Pagination = () => {
               if (publication.descripcionPropiedad !== "") {
                 //Validacion Final
                 publication.idUser = localStorage.getItem("uid");
-                console.log(publication);
                 if ((await regPublication(publication)) === true) {
                   navigate("/");
                   Toast.fire({

@@ -41,9 +41,7 @@ const PublicationMap = ({ direccion }) => {
           .then((results) => getLatLng(results[0]))
           .then(({ lat, lng }) => setCoordenadas({ lat: lat, lng: lng }));
 
-        console.log(res);
-
-        //console.log(res);
+        //(res);
       } catch (error) {
         console.log(error);
       }
@@ -53,8 +51,6 @@ const PublicationMap = ({ direccion }) => {
       setearDireccion();
     }, 3000);
   }, []);
-
-  console.log(coordenadas);
 
   return (
     <LoadScript googleMapsApiKey="AIzaSyDYu1LOM18trcdTPiOX6th1r2yZSMCKZ2g">

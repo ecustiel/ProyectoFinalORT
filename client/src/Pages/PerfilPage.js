@@ -34,7 +34,7 @@ export default function PerfilPage() {
         setName(item.name);
         setSurname(item.surname);
         setAddress(item.address);
-        setCelnumber(item.celnumber);
+        setCelnumber(item.celNumber);
         setCity(item.city);
         setEmail(item.email);
         setToConfirm(true);

@@ -70,7 +70,7 @@ export default function SecondStage() {
           </Form.Label>
           <Form.Select
             className="w-50"
-            name="tipoPropiedad"
+            name="balneario"
             value={publication.balneario}
             onChange={handleChange}
           >

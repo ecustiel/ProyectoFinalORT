@@ -6,7 +6,6 @@ const { RangePicker } = DatePicker;
 
 function DatePickerNow() {
   const [dates, setDates] = useState([]);
-  console.log(dates);
 
   return (
     <div style={{ margin: 20 }}>

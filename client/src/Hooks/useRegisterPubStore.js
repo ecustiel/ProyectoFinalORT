@@ -13,7 +13,7 @@ export const useRegisterPubStore = () => {
 
       return true;
     } catch (error) {
-      console.log(error);
+      error;
       return false;
     }
   };
@@ -21,20 +21,20 @@ export const useRegisterPubStore = () => {
   const getPublications = async () => {
     try {
       const { data } = await registerPub.get("/search");
-      //console.log(data);
+      //(data);
       return data;
     } catch (error) {
-      console.log(error);
+      error;
     }
   };
 
   const getPublicationsById = async () => {
     try {
       const { data } = await registerPub.get("/publication/:id");
-      //console.log(data);
+      //(data);
       return data;
     } catch (error) {
-      console.log(error);
+      error;
     }
   };
 
@@ -44,7 +44,7 @@ export const useRegisterPubStore = () => {
 
       return true;
     } catch (error) {
-      console.log(error);
+      error;
       return false;
     }
   };

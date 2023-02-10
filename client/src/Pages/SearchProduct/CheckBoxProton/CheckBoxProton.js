@@ -28,7 +28,6 @@ const useStyles = makeStyles({
 const CheckBoxProton = ({ balneario, changeChecked }) => {
   const classes = useStyles();
   const { checked, label, id } = balneario;
-
   return (
     <div>
       <FormControlLabel

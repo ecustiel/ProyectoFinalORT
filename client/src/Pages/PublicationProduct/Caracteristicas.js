@@ -30,7 +30,6 @@ const Caracteristicas = ({ publicationData }) => {
     },
   ] = useState(publicationData);
 
-  console.log(cantHuespedes);
   return (
     <div>
       <h3>Comodidades</h3>

@@ -21,7 +21,7 @@ const userRegister = async (req, res) => {
     }
 
     usr = new User(req.body);
-    //console.log(usr);
+    //console.log(req.body);
 
     //Encriptador de Contrasena
     const salt = bcrypt.genSaltSync();

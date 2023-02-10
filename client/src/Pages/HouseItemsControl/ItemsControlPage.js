@@ -97,7 +97,7 @@ const ItemsControlPage = () => {
   const ShowMeTheTrue = (e) => {
     e.preventDefault();
     setIdPublicacion(e.target.id);
-    console.log(e.target.id);
+    e.target.id;
     setShowPanel(true);
   };
 

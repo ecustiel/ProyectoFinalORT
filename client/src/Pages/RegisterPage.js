@@ -31,7 +31,7 @@ export const RegisterPage = () => {
     onInputChange,
   } = useForm(registerFormFields);
   const navigate = useNavigate();
-  //console.log(registerFormFields);
+  //(registerFormFields);
 
   const registerSubmit = (event) => {
     event.preventDefault();

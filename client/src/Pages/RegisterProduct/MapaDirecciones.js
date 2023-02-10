@@ -59,7 +59,7 @@ export default function Home() {
         title: "Direccion Agregada Correctamente!",
       });
     } catch (error) {
-      console.log(error);
+      error;
     }
   };
 

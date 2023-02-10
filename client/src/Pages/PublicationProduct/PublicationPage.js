@@ -45,10 +45,9 @@ const PublicationPage = () => {
 
   const handleSelect = (e) => {
     //e.preventDefault();
-    console.log(e);
   };
-  //console.log(publicationData);
-  //console.log(imagenesSinConvertir);
+  //(publicationData);
+  //(imagenesSinConvertir);
 
   return (
     <div>

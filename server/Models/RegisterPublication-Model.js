@@ -13,6 +13,10 @@ const registerPublicationSchema = Schema({
     type: String,
     require: true,
   },
+  balneario: {
+    type: String,
+    require: true,
+  },
   title: {
     type: String,
     require: true,

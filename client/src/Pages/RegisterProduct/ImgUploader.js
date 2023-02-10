@@ -59,6 +59,7 @@ const ImgUploader = () => {
         ref={uploader}
         accept=".png, .jpeg, .jpg"
       />
+      <p>Maximo 3 Imagenes!</p>
       <hr />
       <Button disabled={!value.length} onClick={onSubmit}>
         Start Upload

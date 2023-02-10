@@ -14,7 +14,7 @@ const ListItemData = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //console.log(idPub);
+    //(idPub);
     navigate(`/publication/${idPub}`);
   };
 
