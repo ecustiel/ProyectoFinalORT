@@ -1,0 +1,10 @@
+{
+
+"scripts":{
+   "start":"nodemon server/Index.js",
+   "client": "yarn start client/index.js",
+   "dev": " \"client/yarn start\" \"server/yarn dev\"",
+   "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false yarn install --prefix client && yarn run build --prefix client" 
+}
+
+}
