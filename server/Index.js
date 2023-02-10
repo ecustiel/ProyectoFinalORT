@@ -3,6 +3,7 @@ require("dotenv").config();
 const cors = require("cors");
 const { dbConnection } = require("./DataBase/Config");
 const bodyParser = require("body-parser");
+const path = require("path");
 
 //Creo servidor de express
 const app = express();
@@ -30,6 +31,15 @@ app.use("/api/search", require("./Routes/RegisterPublication"));
 app.use("/api/publication", require("./Routes/RegisterPublication"));
 app.use("/api/itemsControl", require("./Routes/RegisterPublication"));
 app.use("/api/itemsControl", require("./Routes/ItemList"));
+
+//DEPLOYMENT
+__dirname = path.resolve();
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../client/build")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 
 //Peticiones
 app.listen(process.env.PORT, () => {
