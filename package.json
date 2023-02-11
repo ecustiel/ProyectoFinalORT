@@ -10,7 +10,6 @@
 "scripts": {
   "start": "nodemon server/Index.js",
   "client": "yarn start --prefix client",
-  "server": "node server/Index.js",
   "dev": "concurrently \"yarn start\"",
   "heroku-postbuild": "YARN_PRODUCTION=false yarn add --prefix client && yarn run build --prefix client"
 },
