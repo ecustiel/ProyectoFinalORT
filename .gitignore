@@ -1,3 +1,5 @@
 node_mopdules
 /client/build
 node_modules
+
+.env
