@@ -24,7 +24,7 @@ export default function AppRouter() {
   const { status, checkAuthToken } = useAuthStore();
 
   const { id } = useParams();
-  id;
+
   useEffect(() => {
     checkAuthToken();
   }, []);

@@ -13,7 +13,7 @@ export const useRegisterPubStore = () => {
 
       return true;
     } catch (error) {
-      error;
+      console.log(error);
       return false;
     }
   };
@@ -24,7 +24,7 @@ export const useRegisterPubStore = () => {
       //(data);
       return data;
     } catch (error) {
-      error;
+      console.log(error);
     }
   };
 
@@ -34,7 +34,7 @@ export const useRegisterPubStore = () => {
       //(data);
       return data;
     } catch (error) {
-      error;
+      console.log(error);
     }
   };
 
@@ -44,7 +44,7 @@ export const useRegisterPubStore = () => {
 
       return true;
     } catch (error) {
-      error;
+      console.log(error);
       return false;
     }
   };

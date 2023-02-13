@@ -85,15 +85,13 @@ export const useAuthStore = () => {
   };
 
   const updateProfile = async (user) => {
-    user;
     try {
       const { data } = await authApi.post("/auth/profile", user);
-      data;
 
       //dispatch(onLogin({ name: data.name, uid: data.uid }));
       return true;
     } catch (error) {
-      error;
+      console.log(error);
       return false;
     }
   };
@@ -105,7 +103,7 @@ export const useAuthStore = () => {
 
       return data;
     } catch (error) {
-      error;
+      console.log(error);
       return false;
     }
   };
