@@ -9,9 +9,10 @@
   },
   "scripts": {
     "start": "nodemon server/Index.js",
-    "client": "yarn start --prefix client",
+    "client": "yarn start client",
     "dev": "concurrently \"yarn start\"",
-    "heroku-postbuild": "YARN_PRODUCTION=false yarn add --prefix file:./client && yarn build --prefix file:./client"
+    "heroku-postbuild": "YARN_PRODUCTION=false cd ./client && yarn install && yarn build"
+    
   },
   "dependencies": {
     "assert": "^2.0.0",
