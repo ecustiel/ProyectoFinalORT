@@ -55,7 +55,10 @@ export const Pagination = () => {
             publication.colchon !== "" &&
             publication.cucheta !== ""
           ) {
-            if (publication.imagenesBase64 !== "") {
+            if (
+              publication.imagenesBase64 !== "" &&
+              publication.imagenesBase64.length < 3
+            ) {
               if (publication.descripcionPropiedad !== "") {
                 //Validacion Final
                 publication.idUser = localStorage.getItem("uid");
@@ -81,7 +84,8 @@ export const Pagination = () => {
             } else {
               Toast.fire({
                 icon: "warning",
-                title: "Debe cargar como minimo 1 Imagen de la Propiedad!",
+                title:
+                  "Debe cargar como minimo 1 Imagen de la Propiedad y Maximo 3!",
               });
             }
           } else {
@@ -142,12 +146,36 @@ export const Pagination = () => {
     <div className="fondoPagination">
       <div className="mt-5 w-75 vh-75 mx-auto">
         <Steps current={step}>
-          <Steps.Item title="Paso 1" description="Datos de la Operacion" />
-          <Steps.Item title="Paso 2" description="Datos Generales" />
-          <Steps.Item title="Paso 3" description="Detalles de la Propiedad" />
-          <Steps.Item title="Paso 4" description="Confort" />
-          <Steps.Item title="Paso 5" description="Gestion de Imagenes" />
-          <Steps.Item title="Finalizar" description="Descripcion" />
+          <Steps.Item
+            title="Paso 1"
+            className="everyStep"
+            description="Datos de la Operacion"
+          />
+          <Steps.Item
+            title="Paso 2"
+            className="everyStep"
+            description="Datos Generales"
+          />
+          <Steps.Item
+            title="Paso 3"
+            className="everyStep"
+            description="Detalles de la Propiedad"
+          />
+          <Steps.Item
+            title="Paso 4"
+            className="everyStep"
+            description="Confort"
+          />
+          <Steps.Item
+            title="Paso 5"
+            className="everyStep"
+            description="Gestion de Imagenes"
+          />
+          <Steps.Item
+            title="Finalizar"
+            className="everyStep"
+            description="Descripcion"
+          />
         </Steps>
         <hr />
         <Panel shaded>{Render}</Panel>

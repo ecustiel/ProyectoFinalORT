@@ -1,6 +1,7 @@
 import { useState, useContext, useRef } from "react";
 import { Button, Col, Form, Row, InputGroup } from "react-bootstrap";
 import useFormContext from "../../Hooks/useFormContext";
+import "./styles.css";
 
 export default function FirstStep() {
   const { publication, handleChange } = useFormContext();
@@ -47,20 +48,35 @@ export default function FirstStep() {
         <Form.Group id="Primero">
           <Row>
             <Col className="justify-content-center">
-              <Form.Control
-                readOnly
-                placeholder="Temporada Alta"
-                aria-label="Default select example"
-                className="w-50 mx-auto text-center"
-                name="temp1"
-                id="temp1"
-                ref={ref.temp1}
-                value={publication.temp1}
-              />
+              <div className="test">
+                <Form.Control
+                  readOnly
+                  placeholder="Temporada Alta"
+                  aria-label="Default select example"
+                  className="w-50 mx-auto text-center"
+                  name="temp1"
+                  id="temp1"
+                  ref={ref.temp1}
+                  value={publication.temp1}
+                  style={{
+                    backgroundColor: "#E08E45",
+                    fontWeight: "bold",
+                    color: "#6B2737",
+                  }}
+                />
+              </div>
             </Col>
             <Col>
               <InputGroup className="pe-5 w-75">
-                <InputGroup.Text>$</InputGroup.Text>
+                <InputGroup.Text
+                  style={{
+                    backgroundColor: "#E08E45",
+                    fontWeight: "bold",
+                    color: "#6B2737",
+                  }}
+                >
+                  $
+                </InputGroup.Text>
                 <Form.Control
                   placeholder="Prexio x Dia"
                   id="pric1"
@@ -70,7 +86,15 @@ export default function FirstStep() {
                   value={publication.pric1}
                   onChange={handleChange}
                 />
-                <InputGroup.Text>.00</InputGroup.Text>
+                <InputGroup.Text
+                  style={{
+                    backgroundColor: "#E08E45",
+                    fontWeight: "bold",
+                    color: "#6B2737",
+                  }}
+                >
+                  .00
+                </InputGroup.Text>
               </InputGroup>
             </Col>
           </Row>
@@ -88,11 +112,24 @@ export default function FirstStep() {
                 id="temp2"
                 ref={ref.temp2}
                 value={publication.temp2}
+                style={{
+                  backgroundColor: "#E08E45",
+                  fontWeight: "bold",
+                  color: "#6B2737",
+                }}
               />
             </Col>
             <Col>
               <InputGroup className="pe-5 w-75">
-                <InputGroup.Text>$</InputGroup.Text>
+                <InputGroup.Text
+                  style={{
+                    backgroundColor: "#E08E45",
+                    fontWeight: "bold",
+                    color: "#6B2737",
+                  }}
+                >
+                  $
+                </InputGroup.Text>
                 <Form.Control
                   placeholder="Prexio x Dia"
                   id="pric2"
@@ -101,7 +138,15 @@ export default function FirstStep() {
                   value={publication.pric2}
                   onChange={handleChange}
                 />
-                <InputGroup.Text>.00</InputGroup.Text>
+                <InputGroup.Text
+                  style={{
+                    backgroundColor: "#E08E45",
+                    fontWeight: "bold",
+                    color: "#6B2737",
+                  }}
+                >
+                  .00
+                </InputGroup.Text>
               </InputGroup>
             </Col>
           </Row>
@@ -119,11 +164,24 @@ export default function FirstStep() {
                 id="temp3"
                 ref={ref.temp3}
                 value={publication.temp3}
+                style={{
+                  backgroundColor: "#E08E45",
+                  fontWeight: "bold",
+                  color: "#6B2737",
+                }}
               />
             </Col>
             <Col>
               <InputGroup className="pe-5 w-75">
-                <InputGroup.Text>$</InputGroup.Text>
+                <InputGroup.Text
+                  style={{
+                    backgroundColor: "#E08E45",
+                    fontWeight: "bold",
+                    color: "#6B2737",
+                  }}
+                >
+                  $
+                </InputGroup.Text>
                 <Form.Control
                   placeholder="Prexio x Dia"
                   id="pric3"
@@ -132,7 +190,15 @@ export default function FirstStep() {
                   value={publication.pric3}
                   onChange={handleChange}
                 />
-                <InputGroup.Text>.00</InputGroup.Text>
+                <InputGroup.Text
+                  style={{
+                    backgroundColor: "#E08E45",
+                    fontWeight: "bold",
+                    color: "#6B2737",
+                  }}
+                >
+                  .00
+                </InputGroup.Text>
               </InputGroup>
             </Col>
           </Row>

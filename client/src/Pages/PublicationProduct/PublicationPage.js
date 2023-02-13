@@ -107,7 +107,10 @@ const PublicationPage = () => {
             <div className="midside-descripcion">
               <h1>Descripcion de la Propiedad</h1>
               <p>{publicationData.descripcionPropiedad}</p>
-              <Caracteristicas publicationData={publicationData} />
+              <Caracteristicas
+                publicationData={publicationData}
+                className="midside-caracteristicas"
+              />
             </div>
             <div className="under-description">
               <div className="sec-reserva">

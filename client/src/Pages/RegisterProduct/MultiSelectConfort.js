@@ -21,7 +21,6 @@ const MultiSelectConfort = () => {
     { value: "Barbacoa", label: "Barbacoa" },
     { value: "Calefaccion", label: "Calefaccion" },
     { value: "Calefon", label: "Calefon" },
-    { value: "Cochera", label: "Cochera" },
     { value: "Deposito", label: "Deposito" },
     { value: "Estufa a Leña", label: "Estufa a Leña" },
     { value: "TV Cable", label: "TV Cable" },

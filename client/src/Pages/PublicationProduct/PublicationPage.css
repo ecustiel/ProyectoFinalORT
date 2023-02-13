@@ -25,6 +25,11 @@
     justify-content: center;
 }
 
+
+.midside-caracteristicas {
+    margin-top: 20px;
+}
+
 .date-range-picker{
     width: 100%;
 }
@@ -34,6 +39,10 @@ width: 80%;
 text-align: center;
 justify-content: center;
 margin: auto;
+}
+
+.lst-group-1 {
+    width: 10%;
 }
 
 .under-description {

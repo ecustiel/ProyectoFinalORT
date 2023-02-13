@@ -59,7 +59,7 @@ export default function Home() {
         title: "Direccion Agregada Correctamente!",
       });
     } catch (error) {
-      error;
+      console.log(error);
     }
   };
 
@@ -95,7 +95,17 @@ export default function Home() {
         Sea preciso con la direccion, la misma sera usada con fines de
         Geolocalizacion en el Futuro
       </Form.Label>
-      <Button variant="secondary" className="mt-3" onClick={guardarDireccion}>
+      <Button
+        variant="secondary"
+        style={{
+          color: "#6B2737",
+          fontWeight: "bold",
+          background: "#E08E45",
+          border: "none",
+        }}
+        className="mt-3"
+        onClick={guardarDireccion}
+      >
         Agregar Direccion
       </Button>
     </>

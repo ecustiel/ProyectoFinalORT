@@ -106,9 +106,21 @@ export default function ThirdStage() {
         </Form.Group>
 
         <Form.Group className="mb-3" id="formGaraje">
-          <Form.Label>Garaje:</Form.Label>
+          <Form.Label>
+            <strong>Garaje:</strong>
+          </Form.Label>
           {["radio"].map((type) => (
             <div key={`inline-${type}`} className="mb-3">
+              <Form.Check
+                inline
+                label="0"
+                name="garaje"
+                value="0"
+                checked={publication.garaje === "0"}
+                onChange={handleChange}
+                type={type}
+                id={`inline-${type}-0`}
+              />
               <Form.Check
                 inline
                 label="1"
@@ -175,11 +187,11 @@ export default function ThirdStage() {
             onChange={handleChange}
           >
             <option>Sin Descripcion</option>
-            <option value="100">100</option>
-            <option value="250">250</option>
-            <option value="500">500</option>
-            <option value="750">750</option>
-            <option value="1000++">1000 o +</option>
+            <option value="100">100mts</option>
+            <option value="250">250mts</option>
+            <option value="500">500mts</option>
+            <option value="750">750mts</option>
+            <option value="1000++">1000mts o +</option>
           </Form.Select>
         </Form.Group>
 

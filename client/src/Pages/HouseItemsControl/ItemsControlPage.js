@@ -97,23 +97,34 @@ const ItemsControlPage = () => {
   const ShowMeTheTrue = (e) => {
     e.preventDefault();
     setIdPublicacion(e.target.id);
-    e.target.id;
+    //e.target.id;
     setShowPanel(true);
   };
 
   const addItemListToBase = async (e) => {
     e.preventDefault();
-    if ((await itemListRegister(items)) === true) {
-      Toast.fire({
-        title: "Exito!",
-        text: "Agregada a Publicacion Correctamente!",
-        icon: "success",
-        confirmButtonText: "Ok!",
-      });
+
+    if (items.length > 0) {
+      if ((await itemListRegister(items)) === true) {
+        Toast.fire({
+          title: "Exito!",
+          text: "Agregada a Publicacion Correctamente!",
+          icon: "success",
+          confirmButtonText: "Ok!",
+        });
+        setItems([]);
+      } else {
+        Toast.fire({
+          title: "Error!",
+          text: "Error al Agregar Lista! Verifique!",
+          icon: "error",
+          confirmButtonText: "Ok!",
+        });
+      }
     } else {
       Toast.fire({
         title: "Error!",
-        text: "Error al Agregar Lista! Verifique!",
+        text: "Debe agregar al menos 1 item a la lista!",
         icon: "error",
         confirmButtonText: "Ok!",
       });
