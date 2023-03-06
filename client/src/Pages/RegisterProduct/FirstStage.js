@@ -78,7 +78,7 @@ export default function FirstStep() {
                   $
                 </InputGroup.Text>
                 <Form.Control
-                  placeholder="Prexio x Dia"
+                  placeholder="Presio x Dia"
                   id="pric1"
                   aria-label="Amount (to the nearest dollar)"
                   name="pric1"
@@ -131,7 +131,7 @@ export default function FirstStep() {
                   $
                 </InputGroup.Text>
                 <Form.Control
-                  placeholder="Prexio x Dia"
+                  placeholder="Presio x Dia"
                   id="pric2"
                   aria-label="Amount (to the nearest dollar)"
                   name="pric2"
@@ -183,7 +183,7 @@ export default function FirstStep() {
                   $
                 </InputGroup.Text>
                 <Form.Control
-                  placeholder="Prexio x Dia"
+                  placeholder="Presio x Dia"
                   id="pric3"
                   aria-label="Amount (to the nearest dollar)"
                   name="pric3"

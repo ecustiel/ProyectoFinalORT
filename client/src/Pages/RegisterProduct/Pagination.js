@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { Steps, Panel, Placeholder, ButtonGroup, Button } from "rsuite";
 
 export const Pagination = () => {
-  const { publication, handleChange } = useFormContext();
+  const { publication, setPublication, handleChange } = useFormContext();
   const { regPublication } = useRegisterPubStore();
   const navigate = useNavigate();
 
@@ -57,13 +57,36 @@ export const Pagination = () => {
           ) {
             if (
               publication.imagenesBase64 !== "" &&
-              publication.imagenesBase64.length < 3
+              publication.imagenesBase64.length <= 3
             ) {
               if (publication.descripcionPropiedad !== "") {
                 //Validacion Final
                 publication.idUser = localStorage.getItem("uid");
                 if ((await regPublication(publication)) === true) {
                   navigate("/");
+                  publication.title = "";
+                  publication.pric1 = "";
+                  publication.pric2 = "";
+                  publication.pric3 = "";
+                  publication.cantHuespedes = "";
+                  publication.tipoPropiedad = "";
+                  publication.direccion = "";
+                  publication.balneario = "";
+                  publication.cantDormitorios = "";
+                  publication.cantBanos = "";
+                  publication.vistaAlMar = "";
+                  publication.dosPlazas = "";
+                  publication.unaPlaza = "";
+                  publication.sofaCama = "";
+                  publication.colchon = "";
+                  publication.cucheta = "";
+                  publication.imagenesBase64 = "";
+                  publication.descripcionPropiedad = "";
+                  publication.distanciaAlMar = "";
+                  publication.garaje = "";
+                  publication.opcionesConfort = "";
+                  publication.opcionesSeguridad = "";
+                  console.log(publication);
                   Toast.fire({
                     icon: "success",
                     title: "Publicado Exitosamente!",
