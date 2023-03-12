@@ -56,8 +56,26 @@ const ItemsControlPage = () => {
         return;
       }
 
-      setContador(contador + 1);
-      setItems([...items, item]);
+      let bandera = false;
+      items.filter((dataItem) =>
+        dataItem.nombre === item.nombre ? (bandera = true) : null
+      );
+
+      if (bandera === false && bandera !== null) {
+        const arr = items;
+        arr.push(item);
+
+        setContador(contador + 1);
+        setItems(arr);
+        console.log(items);
+      } else {
+        Toast.fire({
+          title: "Error!",
+          text: "No puede haber 2 items con el mismo nombre!",
+          icon: "error",
+          confirmButtonText: "Ok!",
+        });
+      }
     } else {
       Toast.fire({
         title: "Error!",
@@ -69,7 +87,14 @@ const ItemsControlPage = () => {
   };
 
   const borrarItem = (item) => {
-    setItems(items.filter((dataItem) => dataItem.cont !== item.cont));
+    console.log(item);
+    setItems(
+      items.filter(
+        (dataItem) =>
+          dataItem.cont !== item.cont && dataItem.nombre !== item.nombre
+      )
+    );
+    console.log(items);
   };
 
   const setPublications = async () => {
@@ -162,7 +187,7 @@ const ItemsControlPage = () => {
         {items.map((item) => (
           <ItemsQuantityAndPriceList
             item={item}
-            key={contador}
+            //key={contador}
             borrarItemList={borrarItem}
           />
         ))}
